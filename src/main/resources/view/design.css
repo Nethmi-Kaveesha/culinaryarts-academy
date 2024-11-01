@@ -1,0 +1,8 @@
+.white-form{
+    -fx-background-color: #FFFFFF;
+
+}
+
+.other-form{
+    -fx-background-color: linear-gradient(to bottom right,);
+}
