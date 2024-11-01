@@ -1,4 +1,4 @@
-package org.example.controller;
+package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.scene.layout.AnchorPane;
+
 import java.io.IOException;
 
 public class DashboardFormController {
@@ -31,14 +31,14 @@ public class DashboardFormController {
     }
 
     private void navigateToTheCustomerForm() throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/customerForm.fxml"));
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/Student.fxml"));
 
         Scene scene = new Scene(rootNode);
 
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setScene(scene);
         stage.centerOnScreen();
-        stage.setTitle("Customer Form");
+        stage.setTitle("Student Form");
     }
 
     @FXML
@@ -47,14 +47,14 @@ public class DashboardFormController {
     }
 
     private void navigateToTheItemForm() throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/itemForm.fxml"));
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/ProgramForm.fxml"));
 
         Scene scene = new Scene(rootNode);
 
         Stage stage = (Stage) this.rootNode.getScene().getWindow();
         stage.setScene(scene);
         stage.centerOnScreen();
-        stage.setTitle("Item Form");
+        stage.setTitle("Program Form");
     }
 
     @FXML

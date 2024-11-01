@@ -1,14 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+<AnchorPane fx:id="rootNode" prefHeight="740.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StudentFormController">
+   <children>
+      <AnchorPane prefHeight="740.0" prefWidth="1100.0">
+         <children>
+            <BorderPane layoutX="135.0" layoutY="90.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
+               <!-- Left Form Section -->
+               <left>
+                  <AnchorPane prefHeight="600.0" prefWidth="344.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="13.0" prefHeight="715.0" prefWidth="318.0" stylesheets="@crudDesign.css">
+                           <children>
+                              <Label layoutX="14.0" layoutY="31.0" text="Student ID">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="stu_id" layoutX="14.0" layoutY="53.0" onAction="#txtIdOnAction" prefHeight="35.0" prefWidth="197.0" />
+
+                              <Label layoutX="16.0" layoutY="101.0" text="Full Name">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="stu_name" layoutX="13.0" layoutY="123.0" onAction="#txtNameOnAction" prefHeight="35.0" prefWidth="197.0" />
+
+                              <Label layoutX="16.0" layoutY="172.0" text="Gender">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="stu_gender" layoutX="13.0" layoutY="194.0" onAction="#txtGenderOnAction" prefHeight="35.0" prefWidth="197.0" promptText="Choose" />
+
+                              <Label layoutX="13.0" layoutY="243.0" text="Birthday">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="stu_birthday" layoutX="12.0" layoutY="265.0" onAction="#txtBirthdayOnAction" prefHeight="35.0" prefWidth="198.0" />
+
+                              <Label layoutX="17.0" layoutY="315.0" text="Email">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="stu_email" layoutX="14.0" layoutY="337.0" onAction="#txtEmailOnAction" prefHeight="35.0" prefWidth="197.0" />
+
+                              <Label layoutX="14.0" layoutY="385.0" text="Phone">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="stu_phone" layoutX="14.0" layoutY="407.0" onAction="#txtPhoneOnAction" prefHeight="35.0" prefWidth="197.0" />
+
+                              <Label layoutX="14.0" layoutY="457.0" text="Address">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="stu_Address" layoutX="14.0" layoutY="479.0" onAction="#txtAddressOnAction" prefHeight="35.0" prefWidth="197.0" />
+
+                              <!-- Buttons Section -->
+                              <Button fx:id="stu_AddBtn" layoutX="31.0" layoutY="554.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Add" />
+                              <Button fx:id="stu_UpdateBtn" layoutX="150.0" layoutY="554.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Update" />
+                              <Button fx:id="stuClearBtn" layoutX="31.0" layoutY="607.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Clear" />
+                              <Button fx:id="stuDeleteBtn" layoutX="150.0" layoutY="607.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Delete" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </left>
+
+               <!-- Center Table Section -->
+               <center>
+                  <AnchorPane prefHeight="600.0" prefWidth="756.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="6.0" layoutY="13.0" prefHeight="710.0" prefWidth="738.0" stylesheets="@crudDesign.css">
+                           <children>
+                              <TableView fx:id="stu_table" layoutX="16.0" layoutY="13.0" prefHeight="694.0" prefWidth="707.0">
+                                 <columns>
+                                    <TableColumn fx:id="stuId_col" prefWidth="100.0" text="Student ID" />
+                                    <TableColumn fx:id="stuName_col" prefWidth="100.0" text="Full Name" />
+                                    <TableColumn fx:id="stuGender_col" prefWidth="100.0" text="Gender" />
+                                    <TableColumn fx:id="stuBirthday_col" prefWidth="100.0" text="Birthday" />
+                                    <TableColumn fx:id="stuEmail_col" prefWidth="100.0" text="Email" />
+                                    <TableColumn fx:id="stuPhone_col" prefWidth="100.0" text="Phone" />
+                                    <TableColumn fx:id="stuAddress_col" prefWidth="106.4" text="Address" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
