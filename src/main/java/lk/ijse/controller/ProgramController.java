@@ -18,17 +18,18 @@ import java.util.List;
 public class ProgramController {
 
     public AnchorPane rootNode;
+    public ComboBox program_name;
     @FXML
-    private TableColumn<ProgramTm, String> programId_col;
+    private TableColumn<?, ?> programId_col;
 
     @FXML
-    private TableColumn<ProgramTm, String> programName_col;
+    private TableColumn<?, ?> programName_col;
 
     @FXML
-    private TableColumn<ProgramTm, String> programDuration_col;
+    private TableColumn<?, ?> programDuration_col;
 
     @FXML
-    private TableColumn<ProgramTm, String> programFee_col;
+    private TableColumn<?, ?> programFee_col;
 
     @FXML
     private Button programClearBtn;
@@ -45,8 +46,7 @@ public class ProgramController {
     @FXML
     private TextField program_id;
 
-    @FXML
-    private TextField program_name;
+
 
     @FXML
     private TextField program_duration;
@@ -64,13 +64,21 @@ public class ProgramController {
     public void initialize() {
         setCellValueFactory();
         loadAllPrograms();
+
+        program_name.getItems().addAll("Basic Culinary Skills", "Advanced Culinary Arts","Pastry and Baking Fundamentals","Professional Chef Training","International Cuisine","Vegetarian and Vegan Cooking","Food Safety and Hygiene","Culinary Management");
+
+        program_table.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                populateFields(newValue);
+            }
+        });
     }
 
     private void setCellValueFactory() {
-        programId_col.setCellValueFactory(new PropertyValueFactory<>("id"));
-        programName_col.setCellValueFactory(new PropertyValueFactory<>("name"));
-        programDuration_col.setCellValueFactory(new PropertyValueFactory<>("duration"));
-        programFee_col.setCellValueFactory(new PropertyValueFactory<>("fee"));
+        programId_col.setCellValueFactory(new PropertyValueFactory<>("programCode"));
+        programName_col.setCellValueFactory(new PropertyValueFactory<>("programName"));
+        programDuration_col.setCellValueFactory(new PropertyValueFactory<>("programFee"));
+        programFee_col.setCellValueFactory(new PropertyValueFactory<>("programDuration"));
     }
 
     private void loadAllPrograms() {
@@ -101,34 +109,67 @@ public class ProgramController {
         }
     }
 
+    private void populateFields(ProgramTm programTm) {
+        program_id.setText(programTm.getProgramCode());
+        program_name.setValue(programTm.getProgramName());
+        program_duration.setText(programTm.getProgramDuration());
+        program_fee.setText(programTm.getProgramFee());
+    }
+
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        boolean isSaved = programBO.save(new ProgramDto(program_id.getText(), program_name.getText(), program_duration.getText(), program_fee.getText()));
+        // Ensure a program name is selected
+        String selectedProgramName = (String) program_name.getValue();
+        if (selectedProgramName == null || selectedProgramName.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please select a program name").show();
+            return;
+        }
+
+        // Save the program details
+        boolean isSaved = programBO.save(new ProgramDto(program_id.getText(), selectedProgramName, program_duration.getText(), program_fee.getText()));
         if (isSaved) {
             loadAllPrograms();
             clearFields();
             new Alert(Alert.AlertType.CONFIRMATION, "Program Saved").show();
         } else {
-            new Alert(Alert.AlertType.ERROR, "Program UnSaved").show();
+            new Alert(Alert.AlertType.ERROR, "Program not saved").show();
         }
     }
 
+
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-        boolean isUpdated = programBO.update(new ProgramDto(program_id.getText(), program_name.getText(), program_duration.getText(),program_fee.getText()));
+        // Validate fields before attempting update
+        if (program_id.getText().isEmpty() || program_name.getValue() == null ||
+                program_duration.getText().isEmpty() || program_fee.getText().isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please fill all fields before updating.").show();
+            return;
+        }
+
+        // Attempt to update program
+        boolean isUpdated = programBO.update(new ProgramDto(
+                program_id.getText(),
+                (String) program_name.getValue(),
+                program_duration.getText(),
+                program_fee.getText()
+        ));
+
+        // Check the result of the update operation
         if (isUpdated) {
             loadAllPrograms();
             clearFields();
             new Alert(Alert.AlertType.CONFIRMATION, "Program Updated").show();
         } else {
-            new Alert(Alert.AlertType.ERROR, "Program UnUpdated").show();
+            new Alert(Alert.AlertType.ERROR, "Update failed. Please check your inputs and try again.").show();
         }
     }
 
+
     public void btnClearOnAction(ActionEvent actionEvent) {
+
         clearFields();
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
-        boolean isDeleted = programBO.delete(new ProgramDto(program_id.getText(), program_name.getText(), program_duration.getText(), program_fee.getText()));
+        boolean isDeleted = programBO.delete(new ProgramDto(program_id.getText(), (String) program_name.getValue(), program_duration.getText(), program_fee.getText()));
         if (isDeleted) {
             loadAllPrograms();
             clearFields();
@@ -140,7 +181,7 @@ public class ProgramController {
 
     private void clearFields() {
         program_id.setText("");
-        program_name.setText("");
+        program_name.getSelectionModel().clearSelection();
         program_duration.setText("");
         program_fee.setText("");
     }
@@ -149,9 +190,7 @@ public class ProgramController {
         program_id.requestFocus();
     }
 
-    public void txtNameOnAction(ActionEvent actionEvent) {
-        program_name.requestFocus();
-    }
+
 
     public void txtDurationOnAction(ActionEvent actionEvent) {
         program_duration.requestFocus();

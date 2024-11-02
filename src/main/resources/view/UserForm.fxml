@@ -9,10 +9,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserFormController">
+<AnchorPane fx:id="rootNode" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserFormController">
     <children>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
@@ -37,23 +36,24 @@
                                                 <Font size="15.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="username" layoutX="13.0" layoutY="123.0" onAction="#txtUsernameOnAction" prefHeight="35.0" prefWidth="197.0" />
+                                        <TextField fx:id="user_name" layoutX="13.0" layoutY="123.0" onAction="#txtNameOnAction" prefHeight="35.0" prefWidth="197.0" />
                                         <Label layoutX="16.0" layoutY="172.0" text="Password">
                                             <font>
                                                 <Font size="15.0" />
                                             </font>
                                         </Label>
-                                        <TextField fx:id="password" layoutX="13.0" layoutY="194.0" onAction="#txtPasswordOnAction" prefHeight="35.0" prefWidth="197.0" promptText="Enter password" />
+
                                         <Label layoutX="14.0" layoutY="243.0" text="Role">
                                             <font>
                                                 <Font size="15.0" />
                                             </font>
                                         </Label>
-                                        <ComboBox fx:id="role" layoutX="13.0" layoutY="265.0" onAction="#txtRoleOnAction" prefHeight="35.0" prefWidth="197.0" promptText="Choose role" />
-                                        <Button fx:id="user_AddBtn" layoutX="31.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Add" />
-                                        <Button fx:id="user_UpdateBtn" layoutX="150.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Update" />
+                                        <ComboBox fx:id="user_role" layoutX="13.0" layoutY="265.0" onAction="#txtRoleOnAction" prefHeight="35.0" prefWidth="197.0" promptText="Choose role" />
+                                        <Button fx:id="userAddBtn" layoutX="31.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Add" />
+                                        <Button fx:id="userUpdateBtn" layoutX="150.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Update" />
                                         <Button fx:id="userClearBtn" layoutX="31.0" layoutY="370.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Clear" />
                                         <Button fx:id="userDeleteBtn" layoutX="150.0" layoutY="370.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Delete" />
+                              <TextField fx:id="user_password" layoutX="14.0" layoutY="201.0" onAction="#txtPasswordOnAction" prefHeight="35.0" prefWidth="197.0" />
                                     </children>
                                 </AnchorPane>
                             </children>
@@ -70,9 +70,10 @@
                                     <children>
                                         <TableView fx:id="user_table" layoutX="16.0" layoutY="13.0" prefHeight="694.0" prefWidth="707.0">
                                             <columns>
-                                                <TableColumn fx:id="userId_col" prefWidth="100.0" text="User ID" />
-                                                <TableColumn fx:id="username_col" prefWidth="100.0" text="Username" />
-                                                <TableColumn fx:id="role_col" prefWidth="100.0" text="Role" />
+                                                <TableColumn fx:id="userId_col" prefWidth="171.19998168945312" text="User ID" />
+                                                <TableColumn fx:id="userName_col" prefWidth="174.4000244140625" text="Username" />
+                                                <TableColumn fx:id="userPassword_col" prefWidth="176.79998779296875" text="Password" />
+                                    <TableColumn fx:id="userRole_col" prefWidth="182.4000244140625" text="Role" />
                                             </columns>
                                         </TableView>
                                     </children>
@@ -84,4 +85,4 @@
             </children>
         </AnchorPane>
     </children>
-</StackPane>
+</AnchorPane>

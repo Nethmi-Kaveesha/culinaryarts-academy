@@ -1,6 +1,15 @@
 package lk.ijse.view.tdm;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
+@Entity
 public class ProgramTm {
+    @Id
     private String programCode;
     private String programName;
     private String programFee;
@@ -14,38 +23,6 @@ public class ProgramTm {
                 ", programFee='" + programFee + '\'' +
                 ", programDuration='" + programDuration + '\'' +
                 '}';
-    }
-
-    public String getProgramCode() {
-        return programCode;
-    }
-
-    public void setProgramCode(String programCode) {
-        this.programCode = programCode;
-    }
-
-    public String getProgramName() {
-        return programName;
-    }
-
-    public void setProgramName(String programName) {
-        this.programName = programName;
-    }
-
-    public String getProgramFee() {
-        return programFee;
-    }
-
-    public void setProgramFee(String programFee) {
-        this.programFee = programFee;
-    }
-
-    public String getProgramDuration() {
-        return programDuration;
-    }
-
-    public void setProgramDuration(String programDuration) {
-        this.programDuration = programDuration;
     }
 
     public ProgramTm(String programCode, String programName, String programFee, String programDuration) {

@@ -1,9 +1,25 @@
 package lk.ijse.dto;
 
+import jakarta.persistence.Id;
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class ProgramDto {
+    // Setter for programCode
+    // Getters and Setters
+    // Getter for programCode
+    @Id
     private String programCode;    // Unique code for the program
+    // Setter for programName
+    // Getter for programName
     private String programName;    // Name of the program
+    // Setter for programFee
+    // Getter for programFee
     private String programFee;     // Fee for the program
+    // Setter for programDuration
+    // Getter for programDuration
     private String programDuration; // Duration of the program
 
     // Constructor with parameters for easy instantiation
@@ -16,39 +32,6 @@ public class ProgramDto {
 
     // No-argument constructor required for certain frameworks
     public ProgramDto() {
-    }
-
-    // Getters and Setters
-    public String getProgramCode() {
-        return programCode; // Getter for programCode
-    }
-
-    public void setProgramCode(String programCode) {
-        this.programCode = programCode; // Setter for programCode
-    }
-
-    public String getProgramName() {
-        return programName; // Getter for programName
-    }
-
-    public void setProgramName(String programName) {
-        this.programName = programName; // Setter for programName
-    }
-
-    public String getProgramFee() {
-        return programFee; // Getter for programFee
-    }
-
-    public void setProgramFee(String programFee) {
-        this.programFee = programFee; // Setter for programFee
-    }
-
-    public String getProgramDuration() {
-        return programDuration; // Getter for programDuration
-    }
-
-    public void setProgramDuration(String programDuration) {
-        this.programDuration = programDuration; // Setter for programDuration
     }
 
     // Override toString method for better readability

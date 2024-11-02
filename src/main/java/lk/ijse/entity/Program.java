@@ -1,24 +1,38 @@
 package lk.ijse.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "programs") // Specify the table name in the database
 public class Program {
 
+    // Setter for id
+    // Getter for id
     @Id // Mark this field as the primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment strategy for primary key
     private Long id;
 
+    // Setter for programCode
+    // Getter for programCode
     @Column(name = "program_code", unique = true, nullable = false) // Unique and non-nullable program code
     private String programCode;
 
+    // Setter for programName
+    // Getter for programName
     @Column(name = "program_name", nullable = false) // Non-nullable program name
     private String programName;
 
+    // Setter for programFee
+    // Getter for programFee
     @Column(name = "program_fee", nullable = false) // Non-nullable program fee
     private String programFee; // Can be String to include currency symbols
 
+    // Setter for programDuration
+    // Getter for programDuration
     @Column(name = "program_duration", nullable = false) // Non-nullable program duration
     private String programDuration;
 
@@ -35,46 +49,6 @@ public class Program {
     }
 
     // Getters and Setters for all fields
-
-    public Long getId() {
-        return id; // Getter for id
-    }
-
-    public void setId(Long id) {
-        this.id = id; // Setter for id
-    }
-
-    public String getProgramCode() {
-        return programCode; // Getter for programCode
-    }
-
-    public void setProgramCode(String programCode) {
-        this.programCode = programCode; // Setter for programCode
-    }
-
-    public String getProgramName() {
-        return programName; // Getter for programName
-    }
-
-    public void setProgramName(String programName) {
-        this.programName = programName; // Setter for programName
-    }
-
-    public String getProgramFee() {
-        return programFee; // Getter for programFee
-    }
-
-    public void setProgramFee(String programFee) {
-        this.programFee = programFee; // Setter for programFee
-    }
-
-    public String getProgramDuration() {
-        return programDuration; // Getter for programDuration
-    }
-
-    public void setProgramDuration(String programDuration) {
-        this.programDuration = programDuration; // Setter for programDuration
-    }
 
     // Override toString method for better debugging and logging
     @Override

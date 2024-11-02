@@ -2,6 +2,7 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
@@ -34,23 +35,23 @@
                                         <Label layoutX="16.0" layoutY="101.0" text="Program Name">
                                             <font><Font size="15.0" /></font>
                                         </Label>
-                                        <TextField fx:id="program_name" layoutX="13.0" layoutY="123.0" onAction="#txtNameOnAction" prefHeight="35.0" prefWidth="197.0" />
 
-                                        <Label layoutX="16.0" layoutY="172.0" text="Duration">
+                                        <Label layoutX="13.0" layoutY="267.0" text="Duration">
                                             <font><Font size="15.0" /></font>
                                         </Label>
-                                        <TextField fx:id="program_duration" layoutX="13.0" layoutY="194.0" onAction="#txtDurationOnAction" prefHeight="35.0" prefWidth="197.0" />
+                                        <TextField fx:id="program_duration" layoutX="13.0" layoutY="299.0" onAction="#txtDurationOnAction" prefHeight="35.0" prefWidth="197.0" />
 
-                                        <Label layoutX="13.0" layoutY="243.0" text="Fee">
+                                        <Label layoutX="19.0" layoutY="189.0" text="Fee">
                                             <font><Font size="15.0" /></font>
                                         </Label>
-                                        <TextField fx:id="program_fee" layoutX="12.0" layoutY="265.0" onAction="#txtFeeOnAction" prefHeight="35.0" prefWidth="198.0" />
+                                        <TextField fx:id="program_fee" layoutX="13.0" layoutY="211.0" onAction="#txtFeeOnAction" prefHeight="35.0" prefWidth="198.0" />
 
                                         <!-- Buttons -->
                                         <Button fx:id="program_AddBtn" layoutX="31.0" layoutY="554.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Add" />
                                         <Button fx:id="program_UpdateBtn" layoutX="150.0" layoutY="554.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Update" />
                                         <Button fx:id="programClearBtn" layoutX="31.0" layoutY="607.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Clear" />
                                         <Button fx:id="programDeleteBtn" layoutX="150.0" layoutY="607.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Delete" />
+                              <ComboBox fx:id="program_name" layoutX="15.0" layoutY="130.0" prefHeight="33.0" prefWidth="198.0" />
                                     </children>
                                 </AnchorPane>
                             </children>
@@ -69,8 +70,8 @@
                                             <columns>
                                                 <TableColumn fx:id="programId_col" prefWidth="170.39993286132812" text="Program ID" />
                                                 <TableColumn fx:id="programName_col" prefWidth="201.5999755859375" text="Program Name" />
-                                                <TableColumn fx:id="programDuration_col" minWidth="0.0" prefWidth="148.79998779296875" text="Duration" />
-                                                <TableColumn fx:id="programFee_col" prefWidth="185.60003662109375" text="Fee" />
+                                                <TableColumn fx:id="programDuration_col" minWidth="0.0" prefWidth="148.79998779296875" text="Fee" />
+                                                <TableColumn fx:id="programFee_col" prefWidth="185.60003662109375" text="Duration" />
                                             </columns>
                                         </TableView>
                                     </children>

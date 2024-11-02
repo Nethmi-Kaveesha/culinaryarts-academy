@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import lk.ijse.bo.custom.UserBO;
 import lk.ijse.bo.custom.impl.UserBOImpl;
@@ -15,6 +16,10 @@ import lk.ijse.view.tdm.UserTm;
 import java.util.List;
 
 public class UserFormController {
+
+    public AnchorPane rootNode;
+    public TextField user_password;
+    public TableColumn userPassword_col;
 
     @FXML
     private TableColumn<UserTm, String> userId_col;
@@ -55,8 +60,7 @@ public class UserFormController {
     @FXML
     private TableView<UserTm> user_table;
 
-    @FXML
-    private StackPane rootNode;
+   
 
     UserBO userBO = new UserBOImpl();
 
@@ -148,5 +152,14 @@ public class UserFormController {
 
     public void txtEmailOnAction(ActionEvent actionEvent) {
         user_role.requestFocus();
+    }
+
+
+
+    public void txtRoleOnAction(ActionEvent actionEvent) {
+        user_role.requestFocus();
+    }
+
+    public void txtPasswordOnAction(ActionEvent actionEvent) {
     }
 }

@@ -2,9 +2,7 @@ package lk.ijse.dao.custom.impl;
 
 import lk.ijse.config.FactoryConfiguration;
 import lk.ijse.dao.custom.ProgramDAO;
-import lk.ijse.dao.custom.StudentDAO;
 import lk.ijse.entity.Program;
-import lk.ijse.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
