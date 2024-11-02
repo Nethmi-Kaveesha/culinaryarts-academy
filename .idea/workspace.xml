@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="848c05aa-e752-4598-b4c9-9921316dc4ea" name="Changes" comment="first-day">
+    <list default="true" id="848c05aa-e752-4598-b4c9-9921316dc4ea" name="Changes" comment="fix-program-page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/ProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/ProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/UserFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/UserFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/impl/ProgramDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/impl/ProgramDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/ProgramDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/ProgramDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Program.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/view/tdm/ProgramTm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/view/tdm/ProgramTm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/ProgramForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/ProgramForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/UserForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/UserForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +122,7 @@
       <workItem from="1730315687767" duration="517000" />
       <workItem from="1730485724642" duration="2810000" />
       <workItem from="1730490207910" duration="6834000" />
-      <workItem from="1730534356185" duration="7399000" />
+      <workItem from="1730534356185" duration="9795000" />
     </task>
     <task id="LOCAL-00001" summary="first-day">
       <option name="closed" value="true" />
@@ -137,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730496808504</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix-program-page">
+      <option name="closed" value="true" />
+      <created>1730544500270</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730544500270</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +148,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first-day" />
-    <option name="LAST_COMMIT_MESSAGE" value="first-day" />
+    <MESSAGE value="fix-program-page" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix-program-page" />
   </component>
 </project>

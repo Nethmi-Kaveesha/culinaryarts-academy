@@ -15,15 +15,7 @@ public class ProgramTm {
     private String programFee;
     private String programDuration;
 
-    @Override
-    public String toString() {
-        return "ProgramDto{" +
-                "programCode='" + programCode + '\'' +
-                ", programName='" + programName + '\'' +
-                ", programFee='" + programFee + '\'' +
-                ", programDuration='" + programDuration + '\'' +
-                '}';
-    }
+   
 
     public ProgramTm(String programCode, String programName, String programFee, String programDuration) {
         this.programCode = programCode;

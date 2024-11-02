@@ -144,23 +144,32 @@ public class ProgramController {
             return;
         }
 
-        // Attempt to update program
-        boolean isUpdated = programBO.update(new ProgramDto(
+        // Prepare data for update
+        ProgramDto programDto = new ProgramDto(
                 program_id.getText(),
                 (String) program_name.getValue(),
                 program_duration.getText(),
                 program_fee.getText()
-        ));
+        );
 
-        // Check the result of the update operation
-        if (isUpdated) {
-            loadAllPrograms();
-            clearFields();
-            new Alert(Alert.AlertType.CONFIRMATION, "Program Updated").show();
-        } else {
-            new Alert(Alert.AlertType.ERROR, "Update failed. Please check your inputs and try again.").show();
+        try {
+            // Attempt to update the program and check the result
+            boolean isUpdated = programBO.update(programDto);
+            if (isUpdated) {
+                loadAllPrograms(); // Reload table data
+                clearFields();
+                new Alert(Alert.AlertType.CONFIRMATION, "Program Updated").show();
+            } else {
+                // Show an error alert if update fails
+                new Alert(Alert.AlertType.ERROR, "Update failed. No changes were made.").show();
+            }
+        } catch (Exception e) {
+            // Log exception details if an error occurs
+            new Alert(Alert.AlertType.ERROR, "An error occurred during update: " + e.getMessage()).show();
+            e.printStackTrace(); // Print stack trace for debugging
         }
     }
+
 
 
     public void btnClearOnAction(ActionEvent actionEvent) {
@@ -169,15 +178,33 @@ public class ProgramController {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
-        boolean isDeleted = programBO.delete(new ProgramDto(program_id.getText(), (String) program_name.getValue(), program_duration.getText(), program_fee.getText()));
+        String programId = program_id.getText();
+
+        // Check if program ID is valid
+        if (programId == null || programId.isEmpty()) {
+            new Alert(Alert.AlertType.WARNING, "Please select a program to delete.").show();
+            return;
+        }
+
+        System.out.println("Attempting to delete Program with ID: " + programId);
+
+        boolean isDeleted = programBO.delete(new ProgramDto(
+                programId,
+                (String) program_name.getValue(),
+                program_duration.getText(),
+                program_fee.getText()
+        ));
+
         if (isDeleted) {
             loadAllPrograms();
             clearFields();
             new Alert(Alert.AlertType.CONFIRMATION, "Program Deleted").show();
         } else {
-            new Alert(Alert.AlertType.ERROR, "Program UnDeleted").show();
+            new Alert(Alert.AlertType.ERROR, "Program Delete Failed").show();
         }
     }
+
+
 
     private void clearFields() {
         program_id.setText("");
