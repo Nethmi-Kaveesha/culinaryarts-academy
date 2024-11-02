@@ -2,6 +2,7 @@ package lk.ijse.bo;
 
 import lk.ijse.bo.custom.impl.StudentBOImpl;
 import lk.ijse.bo.custom.impl.ProgramBOImpl;
+import lk.ijse.bo.custom.impl.UserBOImpl;
 
 public class BOFactory {
     private static BOFactory boFactory;
@@ -19,12 +20,14 @@ public class BOFactory {
                 return (SuperBO) new StudentBOImpl();
             case PROGRAM:
                 return (SuperBO) new ProgramBOImpl();
+            case USER:
+                return (SuperBO) new UserBOImpl();
             default:
                 throw new IllegalArgumentException("Invalid BO Type");
         }
     }
 
     public enum BOTypes {
-        STUDENT, PROGRAM
+        STUDENT, PROGRAM , USER
     }
 }

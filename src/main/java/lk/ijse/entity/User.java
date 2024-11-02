@@ -1,26 +1,28 @@
 package lk.ijse.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 @Entity
 public class User {
     @Id
     private String userId; // Primary Key (String)
-
     private String username;
     private String password; // Store hashed password
     private String role; // e.g., "admin", "admissions coordinator"
+    private String email; // User email
 
     // Default constructor
     public User() {
     }
 
     // Parameterized constructor
-    public User(String userId, String username, String password, String role) {
+    public User(String userId, String username, String password, String role, String email) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.role = role;
+        this.email = email;
     }
 
     // Getters and Setters
@@ -56,12 +58,21 @@ public class User {
         this.role = role;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "userId='" + userId + '\'' +
                 ", username='" + username + '\'' +
                 ", role='" + role + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

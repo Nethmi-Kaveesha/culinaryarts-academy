@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import jdk.internal.icu.text.NormalizerBase;
 
 import java.io.IOException;
 
@@ -23,6 +24,7 @@ public class DashboardFormController {
 
     @FXML
     private AnchorPane rootNode;
+    private String userId;
 
 
     @FXML
@@ -72,5 +74,11 @@ public class DashboardFormController {
         stage.centerOnScreen();
         stage.setTitle("Place order Form");
     }
+
+    public void setUserId(String userId) {
+        NormalizerBase userIdLabel = null;
+        userIdLabel.setText("Welcome, " + userId + "!"); // Display welcome message
+    }
+
 
 }

@@ -5,15 +5,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
 <!-- Link to your controller class -->
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserFormController">
+
+<AnchorPane prefHeight="594.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
-      <BorderPane fx:id="login_form" prefHeight="200.0" prefWidth="200.0">
+      <BorderPane fx:id="login_form" prefHeight="594.0" prefWidth="825.0">
          <left>
-            <AnchorPane prefHeight="594.0" prefWidth="425.0" styleClass="other-form" stylesheets="@design.css" BorderPane.alignment="TOP_LEFT">
+            <AnchorPane prefHeight="558.0" prefWidth="426.0" styleClass="other-form" stylesheets="@design.css" BorderPane.alignment="TOP_LEFT">
                <children>
                   <Label layoutX="102.0" layoutY="211.0" text="The Culinary Academy" textFill="WHITE">
                      <font>
@@ -26,7 +26,7 @@
                      </font>
                   </Label>
                   <!-- Create Account Button -->
-                  <Button fx:id="si_createAccountBtn" layoutX="96.0" layoutY="465.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="268.0" styleClass="create-btn" stylesheets="@design.css" text="Create Account" onAction="#handleCreateAccount"/>
+                  <Button fx:id="si_createAccountBtn" layoutX="96.0" layoutY="465.0" mnemonicParsing="false" onAction="#handleCreateAccount" prefHeight="38.0" prefWidth="268.0" styleClass="create-btn" stylesheets="@design.css" text="Create Account" />
                </children>
             </AnchorPane>
          </left>
@@ -42,7 +42,7 @@
                   <TextField fx:id="si_username" layoutX="94.0" layoutY="222.0" prefHeight="34.0" prefWidth="222.0" promptText="Username" />
                   <TextField fx:id="si_password" layoutX="94.0" layoutY="280.0" prefHeight="34.0" prefWidth="222.0" promptText="Password" />
                   <!-- Login Button -->
-                  <Button fx:id="si_loginBtn" layoutX="119.0" layoutY="348.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="173.0" styleClass="other-form" stylesheets="@design.css" text="Login" onAction="#handleLogin"/>
+                  <Button fx:id="si_loginBtn" layoutX="119.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="40.0" prefWidth="173.0" styleClass="other-form" stylesheets="@design.css" text="Login" />
                </children>
             </AnchorPane>
          </right>
@@ -64,7 +64,7 @@
                      </font>
                   </Label>
                   <!-- Login Button in Signup Form -->
-                  <Button fx:id="su_loginAccountBtn" layoutX="96.0" layoutY="465.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="268.0" styleClass="create-btn" stylesheets="@design.css" text="Login Account" onAction="#handleLoginAccount"/>
+                  <Button fx:id="su_loginAccountBtn" layoutX="96.0" layoutY="465.0" mnemonicParsing="false" onAction="#handleLoginAccount" prefHeight="38.0" prefWidth="268.0" styleClass="create-btn" stylesheets="@design.css" text="Login Account" />
                </children>
             </AnchorPane>
          </left>
@@ -80,10 +80,10 @@
                   <TextField fx:id="su_username" layoutX="94.0" layoutY="222.0" prefHeight="34.0" prefWidth="222.0" promptText="Username" />
                   <TextField fx:id="su_password" layoutX="94.0" layoutY="280.0" prefHeight="34.0" prefWidth="222.0" promptText="Password" />
                   <!-- Signup Button -->
-                  <Button fx:id="su_signupBtn" layoutX="119.0" layoutY="348.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="173.0" styleClass="other-form" stylesheets="@design.css" text="SignUp" onAction="#handleSignUp"/>
+                  <Button fx:id="su_signupBtn" layoutX="119.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleSignUp" prefHeight="40.0" prefWidth="173.0" styleClass="other-form" stylesheets="@design.css" text="SignUp" />
                </children>
             </AnchorPane>
          </right>
       </BorderPane>
    </children>
-</StackPane>
+</AnchorPane>

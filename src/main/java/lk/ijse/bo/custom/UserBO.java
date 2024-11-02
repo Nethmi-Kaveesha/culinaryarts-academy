@@ -10,4 +10,6 @@ public interface UserBO {
     boolean delete(UserDto userDto);
     boolean search(UserDto userDto); // Changed to return UserDto based on userId
     List<UserDto> getAllUsers(); // Updated method name for clarity
+
+    String generateUserId();
 }

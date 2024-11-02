@@ -5,17 +5,19 @@ public class UserDto {
     private String username;   // Username
     private String password;   // Hashed password
     private String role;       // User role (e.g., "admin", "admissions coordinator")
+    private String email;      // User email
 
     // Default constructor
     public UserDto() {
     }
 
     // Parameterized constructor
-    public UserDto(String userId, String username, String password, String role) {
+    public UserDto(String userId, String username, String password, String role, String email) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.role = role;
+        this.email = email;
     }
 
     // Getters and Setters
@@ -51,12 +53,21 @@ public class UserDto {
         this.role = role;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "UserDto{" +
                 "userId='" + userId + '\'' +
                 ", username='" + username + '\'' +
                 ", role='" + role + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

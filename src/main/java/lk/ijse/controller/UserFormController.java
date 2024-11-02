@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import lk.ijse.bo.custom.UserBO;
 import lk.ijse.bo.custom.impl.UserBOImpl;
 import lk.ijse.dto.UserDto;
@@ -19,7 +18,7 @@ public class UserFormController {
 
     public AnchorPane rootNode;
     public TextField user_password;
-    public TableColumn userPassword_col;
+    public TableColumn<UserTm, String> userPassword_col;
 
     @FXML
     private TableColumn<UserTm, String> userId_col;
@@ -60,20 +59,29 @@ public class UserFormController {
     @FXML
     private TableView<UserTm> user_table;
 
-   
-
     UserBO userBO = new UserBOImpl();
 
     public void initialize() {
         setCellValueFactory();
         loadAllUsers(); // Call this method to load users initially
+
+        user_table.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                populateFields(newValue);
+            }
+        });
+
+        user_id.setText(userBO.generateUserId());
+
+        user_role.getItems().addAll("Admin", "Manager","Developer","HR Specialist", "Finance Officer", "IT Support");
     }
 
     private void setCellValueFactory() {
-        userId_col.setCellValueFactory(new PropertyValueFactory<>("id"));
-        userName_col.setCellValueFactory(new PropertyValueFactory<>("name"));
-        userEmail_col.setCellValueFactory(new PropertyValueFactory<>("email"));
+        userId_col.setCellValueFactory(new PropertyValueFactory<>("userId"));
+        userName_col.setCellValueFactory(new PropertyValueFactory<>("username"));
+        userPassword_col.setCellValueFactory(new PropertyValueFactory<>("password"));
         userRole_col.setCellValueFactory(new PropertyValueFactory<>("role"));
+        userEmail_col.setCellValueFactory(new PropertyValueFactory<>("email"));
     }
 
     private void loadAllUsers() {
@@ -87,7 +95,8 @@ public class UserFormController {
                         userDto.getUserId(),
                         userDto.getUsername(),
                         userDto.getPassword(),
-                        userDto.getRole()
+                        userDto.getRole(),
+                        userDto.getEmail()  // Added email here
                 );
 
                 obList.add(userTm);
@@ -100,21 +109,43 @@ public class UserFormController {
         }
     }
 
+    private void populateFields(UserTm userTm) {
+        user_id.setText(userTm.getUserId());
+        user_name.setText(userTm.getUsername());
+        user_password.setText(userTm.getPassword());
+        user_role.setValue(userTm.getRole());
+        user_email.setText(userTm.getEmail());
+    }
+
     public void btnAddOnAction(ActionEvent actionEvent) {
-        boolean isSaved = userBO.save(new UserDto(user_id.getText(), user_name.getText(), user_email.getText(), user_role.getValue()));
+        boolean isSaved = userBO.save(new UserDto(
+                user_id.getText(),
+                user_name.getText(),
+                user_password.getText(),
+                user_role.getValue(),
+                user_email.getText() // Added email here
+        ));
         if(isSaved){
             new Alert(Alert.AlertType.CONFIRMATION, "User Saved").show();
             loadAllUsers(); // Refresh the table
+            clearFields();
         } else {
             new Alert(Alert.AlertType.ERROR, "User Not Saved").show();
         }
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
-        boolean isUpdated = userBO.update(new UserDto(user_id.getText(), user_name.getText(), user_email.getText(), user_role.getValue()));
+        boolean isUpdated = userBO.update(new UserDto(
+                user_id.getText(),
+                user_name.getText(),
+                user_password.getText(),
+                user_role.getValue(),
+                user_email.getText() // Added email here
+        ));
         if(isUpdated){
             new Alert(Alert.AlertType.CONFIRMATION, "User Updated").show();
             loadAllUsers(); // Refresh the table
+            clearFields();
         } else {
             new Alert(Alert.AlertType.ERROR, "User Not Updated").show();
         }
@@ -122,13 +153,21 @@ public class UserFormController {
 
     public void btnClearOnAction(ActionEvent actionEvent) {
         clearFields();
+        user_id.setText(userBO.generateUserId());
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
-        boolean isDeleted = userBO.delete(new UserDto(user_id.getText(), user_name.getText(), user_email.getText(), user_role.getValue()));
+        boolean isDeleted = userBO.delete(new UserDto(
+                user_id.getText(),
+                user_name.getText(),
+                user_password.getText(),
+                user_role.getValue(),
+                user_email.getText() // Added email here
+        ));
         if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "User Deleted").show();
             loadAllUsers(); // Refresh the table
+            clearFields();
         } else {
             new Alert(Alert.AlertType.ERROR, "User Not Deleted").show();
         }
@@ -153,8 +192,6 @@ public class UserFormController {
     public void txtEmailOnAction(ActionEvent actionEvent) {
         user_role.requestFocus();
     }
-
-
 
     public void txtRoleOnAction(ActionEvent actionEvent) {
         user_role.requestFocus();
