@@ -1,49 +1,49 @@
-.white-form{
-    -fx-background-color: #FFFFFF;
+.white-form {
+    -fx-background-color: #3D3D3D; /* Dark grey for the form */
     -fx-background-radius: 8px;
 }
 
-.border{
-    -fx-border-color: linear-gradient(to bottom right, #9e20a0, #5a3375);
+.border {
+    -fx-border-color: linear-gradient(to bottom right, #1A1A2E, #0F3460); /* Dark blue gradient */
     -fx-border-radius: 8px;
     -fx-border-width: 1px;
 }
 
-.btn{
-    -fx-background-color: linear-gradient(to bottom right, #9e20a0, #5a3375);
+.btn {
+    -fx-background-color: linear-gradient(to bottom right, #1A1A2E, #0F3460); /* Dark blue gradient */
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-cursor: hand;
 }
 
-.btn:hover{
-    -fx-background-color: linear-gradient(to bottom right, #a914ae,#7f4fa4);
+.btn:hover {
+    -fx-background-color: linear-gradient(to bottom right, #162447, #1F1F3D); /* Lighter blue gradient on hover */
 }
 
-.table-view{
+.table-view {
     -fx-padding: 0px;
     -fx-background-color: transparent;
-    -fx-border-color: linear-gradient(to bottom right, #9e20a0, #5a3375);
+    -fx-border-color: linear-gradient(to bottom right, #1A1A2E, #0F3460); /* Dark blue border */
     -fx-border-radius: 8px;
     -fx-border-width: 2px;
 }
-.table-view .column-header{
+
+.table-view .column-header {
     -fx-alignment: CENTER;
 }
-.table-view .column-header-background{
-    -fx-background-color: linear-gradient(to bottom right, #9e20a0, #5a3375);
+
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom right, #1A1A2E, #0F3460); /* Dark blue gradient for header */
     -fx-background-radius: 8px 8px 0 0;
     -fx-background-insets: 0 0 0 0;
 }
 
-.table-view .column-header, .filter{
+.table-view .column-header, .filter {
     -fx-background-color: transparent;
-    -fx-size:50px
+    -fx-pref-height: 50px; /* Correct property name */
 }
 
-.table-view .column-header .label{
+.table-view .column-header .label {
     -fx-text-fill: white;
     -fx-font-family: Arial;
-
 }
-

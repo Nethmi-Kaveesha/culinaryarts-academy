@@ -4,23 +4,14 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 public class ProgramDto {
-    // Setter for programCode
-    // Getters and Setters
-    // Getter for programCode
     @Id
     private String programCode;    // Unique code for the program
-    // Setter for programName
-    // Getter for programName
-    private String programName;    // Name of the program
-    // Setter for programFee
-    // Getter for programFee
-    private String programFee;     // Fee for the program
-    // Setter for programDuration
-    // Getter for programDuration
-    private String programDuration; // Duration of the program
+    private String programName;     // Name of the program
+    private String programFee;      // Fee for the program
+    private String programDuration;  // Duration of the program
 
     // Constructor with parameters for easy instantiation
     public ProgramDto(String programCode, String programName, String programFee, String programDuration) {

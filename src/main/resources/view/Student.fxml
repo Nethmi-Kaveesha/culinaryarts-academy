@@ -9,9 +9,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootNode" prefHeight="740.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StudentFormController">
+<AnchorPane fx:id="rootNode" prefHeight="654.0" prefWidth="1502.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.StudentFormController">
    <children>
       <AnchorPane prefHeight="740.0" prefWidth="1100.0">
          <children>
@@ -21,75 +22,80 @@
                <left>
                   <AnchorPane prefHeight="600.0" prefWidth="344.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="14.0" layoutY="13.0" prefHeight="715.0" prefWidth="318.0" stylesheets="@crudDesign.css">
+                        <AnchorPane layoutX="279.0" layoutY="32.0" prefHeight="602.0" prefWidth="318.0" styleClass="border" stylesheets="@crudDesign.css">
                            <children>
-                              <Label layoutX="14.0" layoutY="31.0" text="Student ID">
+                              <Label layoutX="14.0" layoutY="14.0" text="Student ID">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="stu_id" layoutX="14.0" layoutY="53.0" onAction="#txtIdOnAction" prefHeight="35.0" prefWidth="197.0" />
+                              <TextField fx:id="stu_id" layoutX="12.0" layoutY="36.0" onAction="#txtIdOnAction" prefHeight="35.0" prefWidth="197.0" />
 
-                              <Label layoutX="16.0" layoutY="101.0" text="Full Name">
+                              <Label layoutX="16.0" layoutY="78.0" text="Full Name">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="stu_name" layoutX="13.0" layoutY="123.0" onAction="#txtNameOnAction" prefHeight="35.0" prefWidth="197.0" />
+                              <TextField fx:id="stu_name" layoutX="13.0" layoutY="100.0" onAction="#txtNameOnAction" prefHeight="35.0" prefWidth="197.0" />
 
-                              <Label layoutX="16.0" layoutY="172.0" text="Gender">
+                              <Label layoutX="16.0" layoutY="143.0" text="Gender">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="stu_gender" layoutX="13.0" layoutY="194.0" onAction="#txtGenderOnAction" prefHeight="35.0" prefWidth="197.0" promptText="Choose" />
+                              <ComboBox fx:id="stu_gender" layoutX="14.0" layoutY="165.0" onAction="#txtGenderOnAction" prefHeight="35.0" prefWidth="197.0" promptText="Choose" />
 
-                              <Label layoutX="13.0" layoutY="243.0" text="Birthday">
+                              <Label layoutX="22.0" layoutY="219.0" text="Birthday">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <DatePicker fx:id="stu_birthday" layoutX="12.0" layoutY="265.0" onAction="#txtBirthdayOnAction" prefHeight="35.0" prefWidth="198.0" />
+                              <DatePicker fx:id="stu_birthday" layoutX="16.0" layoutY="241.0" onAction="#txtBirthdayOnAction" prefHeight="35.0" prefWidth="198.0" />
 
-                              <Label layoutX="17.0" layoutY="315.0" text="Email">
+                              <Label layoutX="17.0" layoutY="283.0" text="Email">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="stu_email" layoutX="14.0" layoutY="337.0" onAction="#txtEmailOnAction" prefHeight="35.0" prefWidth="197.0" />
+                              <TextField fx:id="stu_email" layoutX="17.0" layoutY="305.0" onAction="#txtEmailOnAction" prefHeight="35.0" prefWidth="197.0" />
 
-                              <Label layoutX="14.0" layoutY="385.0" text="Phone">
+                              <Label layoutX="19.0" layoutY="352.0" text="Phone">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="stu_phone" layoutX="14.0" layoutY="407.0" onAction="#txtPhoneOnAction" prefHeight="35.0" prefWidth="197.0" />
+                              <TextField fx:id="stu_phone" layoutX="17.0" layoutY="374.0" onAction="#txtPhoneOnAction" prefHeight="35.0" prefWidth="197.0" />
 
-                              <Label layoutX="14.0" layoutY="457.0" text="Address">
+                              <Label layoutX="23.0" layoutY="423.0" text="Address">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="stu_Address" layoutX="14.0" layoutY="479.0" onAction="#txtAddressOnAction" prefHeight="35.0" prefWidth="197.0" />
+                              <TextField fx:id="stu_Address" layoutX="16.0" layoutY="445.0" onAction="#txtAddressOnAction" prefHeight="35.0" prefWidth="197.0" />
 
                               <!-- Buttons Section -->
-                              <Button fx:id="stu_AddBtn" layoutX="31.0" layoutY="554.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Add" />
-                              <Button fx:id="stu_UpdateBtn" layoutX="150.0" layoutY="554.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Update" />
-                              <Button fx:id="stuClearBtn" layoutX="31.0" layoutY="607.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Clear" />
-                              <Button fx:id="stuDeleteBtn" layoutX="150.0" layoutY="607.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Delete" />
+                              <Button fx:id="stu_AddBtn" layoutX="23.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Add" />
+                              <Button fx:id="stu_UpdateBtn" layoutX="150.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Update" />
+                              <Button fx:id="stuClearBtn" layoutX="23.0" layoutY="546.0" mnemonicParsing="false" onAction="#btnClearOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Clear" />
+                              <Button fx:id="stuDeleteBtn" layoutX="150.0" layoutY="546.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="39.0" prefWidth="108.0" styleClass="btn" stylesheets="@crudDesign.css" text="Delete" />
                            </children>
                         </AnchorPane>
+                        <Circle fill="#10375c29" layoutX="151.0" layoutY="132.0" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fill="#0f6dc429" layoutX="122.0" layoutY="129.0" radius="61.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fill="#0f6dc429" layoutX="161.0" layoutY="242.0" radius="71.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fill="#0f6dc429" layoutX="122.0" layoutY="510.0" radius="71.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Circle fill="#10375c29" layoutX="161.0" layoutY="448.0" radius="100.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                      </children>
                   </AnchorPane>
                </left>
 
                <!-- Center Table Section -->
                <center>
-                  <AnchorPane prefHeight="600.0" prefWidth="756.0" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="747.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="6.0" layoutY="13.0" prefHeight="710.0" prefWidth="738.0" stylesheets="@crudDesign.css">
+                        <AnchorPane layoutX="69.0" layoutY="13.0" prefHeight="710.0" prefWidth="1070.0" stylesheets="@crudDesign.css">
                            <children>
-                              <TableView fx:id="stu_table" layoutX="16.0" layoutY="13.0" prefHeight="694.0" prefWidth="707.0">
+                              <TableView fx:id="stu_table" layoutX="21.0" layoutY="14.0" prefHeight="598.0" prefWidth="707.0">
                                  <columns>
                                     <TableColumn fx:id="stuId_col" prefWidth="100.0" text="Student ID" />
                                     <TableColumn fx:id="stuName_col" prefWidth="100.0" text="Full Name" />

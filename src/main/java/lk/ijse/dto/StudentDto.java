@@ -4,13 +4,13 @@ import java.time.LocalDate;
 
 public class StudentDto {
 
-    private String id;
-    private String name;
-    private String gender;
-    private LocalDate birthDay;
-    private String email;
-    private String phone;
-    private String address;
+    private String id;           // Unique identifier for the student
+    private String name;         // Student's name
+    private String gender;       // Student's gender
+    private LocalDate birthDay;  // Student's birth date
+    private String email;        // Student's email
+    private String phone;        // Student's phone number
+    private String address;      // Student's address
 
     // Default constructor
     public StudentDto() {}
@@ -81,5 +81,19 @@ public class StudentDto {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    // Override toString method for better readability
+    @Override
+    public String toString() {
+        return "StudentDto{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", birthDay=" + birthDay +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

@@ -1,14 +1,19 @@
 package lk.ijse.view.tdm;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Setter
+@Getter
 public class StudentTm {
 
-    private String id;
-    private String name;
-    private String gender;
-    private String birthDay;  // Keep this as String for display purposes
-    private String email;
-    private String phone;
-    private String address;
+    private String id;          // Unique identifier for the student
+    private String name;        // Student's name
+    private String gender;      // Student's gender
+    private String birthDay;    // Student's birth date as a String for display purposes
+    private String email;       // Student's email address
+    private String phone;       // Student's phone number
+    private String address;     // Student's address
 
     // Constructors
     public StudentTm(String id, String name, String gender, String birthDay, String email, String phone, String address) {
@@ -21,25 +26,20 @@ public class StudentTm {
         this.address = address;
     }
 
-    // Getters and Setters
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    // Default constructor
+    public StudentTm() {
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-
-    public String getGender() { return gender; }
-    public void setGender(String gender) { this.gender = gender; }
-
-    public String getBirthDay() { return birthDay; }
-    public void setBirthDay(String birthDay) { this.birthDay = birthDay; }
-
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
-
-    public String getPhone() { return phone; }
-    public void setPhone(String phone) { this.phone = phone; }
-
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+    @Override
+    public String toString() {
+        return "StudentTm{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", birthDay='" + birthDay + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

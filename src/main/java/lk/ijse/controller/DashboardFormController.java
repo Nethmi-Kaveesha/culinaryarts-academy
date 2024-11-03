@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import jdk.internal.icu.text.NormalizerBase;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -24,61 +24,54 @@ public class DashboardFormController {
 
     @FXML
     private AnchorPane rootNode;
-    private String userId;
 
+    @FXML
+    private AnchorPane contentArea; // AnchorPane in which to load the forms
+
+    @FXML
+    private Text userIdLabel; // Label to display the user ID
+
+    private String userId;
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) throws IOException {
-        navigateToTheCustomerForm();
+        loadStudentForm();
     }
 
-    private void navigateToTheCustomerForm() throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/Student.fxml"));
+    private void loadStudentForm() throws IOException {
+        AnchorPane studentForm = FXMLLoader.load(getClass().getResource("/view/Student.fxml"));
 
-        Scene scene = new Scene(rootNode);
-
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Student Form");
+        // Clear existing content and load new form
+        contentArea.getChildren().clear();
+        contentArea.getChildren().add(studentForm);
     }
 
     @FXML
     void btnItemOnAction(ActionEvent event) throws IOException {
-        navigateToTheItemForm();
+        loadProgramForm();
     }
 
-    private void navigateToTheItemForm() throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/ProgramForm.fxml"));
+    private void loadProgramForm() throws IOException {
+        AnchorPane programForm = FXMLLoader.load(getClass().getResource("/view/ProgramForm.fxml"));
 
-        Scene scene = new Scene(rootNode);
-
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Program Form");
+        contentArea.getChildren().clear();
+        contentArea.getChildren().add(programForm);
     }
 
     @FXML
     void btnPlaceOnAction(ActionEvent event) throws IOException {
-        navigateToThePlaceOrderForm();
+        loadPlaceOrderForm();
     }
 
-    private void navigateToThePlaceOrderForm() throws IOException {
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/placeorderForm.fxml"));
+    private void loadPlaceOrderForm() throws IOException {
+        AnchorPane placeOrderForm = FXMLLoader.load(getClass().getResource("/view/UserForm.fxml"));
 
-        Scene scene = new Scene(rootNode);
-
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.setTitle("Place order Form");
+        contentArea.getChildren().clear();
+        contentArea.getChildren().add(placeOrderForm);
     }
 
     public void setUserId(String userId) {
-        NormalizerBase userIdLabel = null;
+        this.userId = userId;
         userIdLabel.setText("Welcome, " + userId + "!"); // Display welcome message
     }
-
-
 }

@@ -1,22 +1,17 @@
 package lk.ijse.view.tdm;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
-@Entity
 public class ProgramTm {
-    @Id
-    private String programCode;
-    private String programName;
-    private String programFee;
-    private String programDuration;
+    private String programCode;      // Unique identifier for the program
+    private String programName;      // Name of the program
+    private String programFee;       // Fee for the program
+    private String programDuration;   // Duration of the program
 
-   
-
+    // Parameterized constructor
     public ProgramTm(String programCode, String programName, String programFee, String programDuration) {
         this.programCode = programCode;
         this.programName = programName;
@@ -24,6 +19,17 @@ public class ProgramTm {
         this.programDuration = programDuration;
     }
 
+    // Default constructor
     public ProgramTm() {
+    }
+
+    @Override
+    public String toString() {
+        return "ProgramTm{" +
+                "programCode='" + programCode + '\'' +
+                ", programName='" + programName + '\'' +
+                ", programFee='" + programFee + '\'' +
+                ", programDuration='" + programDuration + '\'' +
+                '}';
     }
 }

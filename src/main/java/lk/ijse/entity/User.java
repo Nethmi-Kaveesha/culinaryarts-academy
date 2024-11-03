@@ -1,15 +1,32 @@
 package lk.ijse.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Entity
+@Table(name = "user") // Specify the table name in the database
 public class User {
+    // Getters and Setters
     @Id
+    @Column(name = "user_id", unique = true, nullable = false) // Make userId unique and non-nullable
     private String userId; // Primary Key (String)
+
+    @Column(name = "username", nullable = false) // Non-nullable username
     private String username;
+
+    @Column(name = "password", nullable = false) // Non-nullable password
     private String password; // Store hashed password
+
+    @Column(name = "role", nullable = false) // Non-nullable role
     private String role; // e.g., "admin", "admissions coordinator"
+
+    @Column(name = "email", unique = true, nullable = false) // Unique and non-nullable email
     private String email; // User email
 
     // Default constructor
@@ -22,47 +39,6 @@ public class User {
         this.username = username;
         this.password = password;
         this.role = role;
-        this.email = email;
-    }
-
-    // Getters and Setters
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
         this.email = email;
     }
 
