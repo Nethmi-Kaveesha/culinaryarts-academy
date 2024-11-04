@@ -4,36 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="848c05aa-e752-4598-b4c9-9921316dc4ea" name="Changes" comment="fix-user-controller">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/EnrollmentDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Enrollment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/view/tdm/EnrollmentTm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/360_F_641882588_QayqH5oM7zcnBBGRwK7TWsCJTM0shfKX.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/cooking-food-kitchen-gold-logo-vector-41704696.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/cooking-school-with-kids-and-teacher-in-a-class-learning-to-learn-cooks-homemade-food-on-flat-cartoon-hand-drawn-templates-illustration-vector.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/d55f6491f1e816143ca8b494631cf2bd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/iGFF6zfM_nPzV_1024.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/maxresdefault.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/pastel-neutral-abstract-wave-background_1048-20684.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/restaurant-menu-design-template-with-chef-hat-spoon-ribbon_615068-9140.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/types-of-chefs-phpiMWLQq.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/vintage-cooking-classes-logo-vector-20955387.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/DashboardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/DashboardFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/ProgramDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/ProgramDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/StudentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/StudentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/view/tdm/ProgramTm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/view/tdm/ProgramTm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/view/tdm/StudentTm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/view/tdm/StudentTm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/ProgramForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/ProgramForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Student.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Student.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/UserForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/UserForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/crudDesign.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/crudDesign.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/dashboardForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/dashboardForm.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="848c05aa-e752-4598-b4c9-9921316dc4ea" name="Changes" comment="design-ui" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,7 +126,7 @@
       <workItem from="1730555740632" duration="5495000" />
       <workItem from="1730577357999" duration="5584000" />
       <workItem from="1730645307841" duration="7852000" />
-      <workItem from="1730662327822" duration="5945000" />
+      <workItem from="1730662327822" duration="6076000" />
     </task>
     <task id="LOCAL-00001" summary="first-day">
       <option name="closed" value="true" />
@@ -189,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730561020331</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="design-ui">
+      <option name="closed" value="true" />
+      <created>1730670051454</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730670051454</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +179,7 @@
     <MESSAGE value="fix-program-page" />
     <MESSAGE value="fix-program-page-delete" />
     <MESSAGE value="fix-user-controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix-user-controller" />
+    <MESSAGE value="design-ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="design-ui" />
   </component>
 </project>
