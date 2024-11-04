@@ -2,7 +2,7 @@ package lk.ijse.view.tdm;
 
 import java.time.LocalDate;
 
-public class EnrollmentTm {
+public class EnrollmentDetailsTm {
     private String id; // Enrollment ID
     private String studentId; // Corresponding Student ID
     private String studentName; // Student Name (optional for display)
@@ -12,11 +12,11 @@ public class EnrollmentTm {
     private String paymentStatus; // Payment status (e.g., "Paid", "Pending", "Failed")
 
     // Default constructor
-    public EnrollmentTm() {
+    public EnrollmentDetailsTm() {
     }
 
     // Parameterized constructor
-    public EnrollmentTm(String id, String studentId, String studentName, String programId, String programName, LocalDate registrationDate, String paymentStatus) {
+    public EnrollmentDetailsTm(String id, String studentId, String studentName, String programId, String programName, LocalDate registrationDate, String paymentStatus) {
         this.id = id;
         this.studentId = studentId;
         this.studentName = studentName;
@@ -85,7 +85,7 @@ public class EnrollmentTm {
 
     @Override
     public String toString() {
-        return "EnrollmentTm{" +
+        return "EnrollmentDetailsTm{" +
                 "id='" + id + '\'' +
                 ", studentId='" + studentId + '\'' +
                 ", studentName='" + studentName + '\'' +

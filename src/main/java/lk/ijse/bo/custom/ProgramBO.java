@@ -11,4 +11,6 @@ public interface ProgramBO {
     ProgramDto search(String programCode); // Assuming searching by program code returns a ProgramDto
 
     List<ProgramDto> getAllPrograms(); // Changed method name for clarity
+
+
 }

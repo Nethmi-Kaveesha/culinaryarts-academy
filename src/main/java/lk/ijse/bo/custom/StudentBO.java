@@ -10,6 +10,7 @@ public interface StudentBO {
     public boolean update(StudentDto studentDto);
     public boolean delete(StudentDto studentDto);
     public boolean search(StudentDto studentDto);
+    StudentDto searchStudent(String studentId);
 
     public List<StudentDto> getAllStudents();
 

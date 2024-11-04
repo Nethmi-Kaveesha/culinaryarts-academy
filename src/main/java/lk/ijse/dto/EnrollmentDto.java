@@ -1,26 +1,27 @@
 package lk.ijse.dto;
 
-import java.time.LocalDate;
+
+import lk.ijse.entity.Program;
+import lk.ijse.entity.Student;
+
+import java.util.Date;
 
 public class EnrollmentDto {
     private String enrollmentId;  // Unique ID for the enrollment
-    private String studentId;      // ID of the student enrolling
-    private String programCode;    // Code of the program the student is enrolling in
-    private LocalDate enrollmentDate; // Date of enrollment
+    private Date date;
+    private Student student;
+    private Program program;
 
-    // Default constructor
     public EnrollmentDto() {
     }
 
-    // Parameterized constructor
-    public EnrollmentDto(String enrollmentId, String studentId, String programCode, LocalDate enrollmentDate) {
+    public EnrollmentDto(String enrollmentId, Date date, Student student, Program program) {
         this.enrollmentId = enrollmentId;
-        this.studentId = studentId;
-        this.programCode = programCode;
-        this.enrollmentDate = enrollmentDate;
+        this.date = date;
+        this.student = student;
+        this.program = program;
     }
 
-    // Getters and Setters
     public String getEnrollmentId() {
         return enrollmentId;
     }
@@ -29,37 +30,28 @@ public class EnrollmentDto {
         this.enrollmentId = enrollmentId;
     }
 
-    public String getStudentId() {
-        return studentId;
+    public Date getDate() {
+        return date;
     }
 
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public String getProgramCode() {
-        return programCode;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setProgramCode(String programCode) {
-        this.programCode = programCode;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
-    public LocalDate getEnrollmentDate() {
-        return enrollmentDate;
+    public Program getProgram() {
+        return program;
     }
 
-    public void setEnrollmentDate(LocalDate enrollmentDate) {
-        this.enrollmentDate = enrollmentDate;
+    public void setProgram(Program program) {
+        this.program = program;
     }
 
-    @Override
-    public String toString() {
-        return "EnrollmentDto{" +
-                "enrollmentId='" + enrollmentId + '\'' +
-                ", studentId='" + studentId + '\'' +
-                ", programCode='" + programCode + '\'' +
-                ", enrollmentDate=" + enrollmentDate +
-                '}';
-    }
 }

@@ -15,16 +15,16 @@ public class Student {
 
     @Id
     private String id;
-
     private String name;
     private String gender;
-
     @Column(name = "birth_day")
     private LocalDate birthDay;
-
     private String email;
     private String phone;
     private String address;
+
+    @OneToMany(mappedBy = "student")
+    private List<Enrollment> enrollmentList;
 
 
     public Student() {}

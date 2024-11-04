@@ -34,6 +34,11 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
+    public StudentDto searchStudent(String studentId) {
+        return null;
+    }
+
+    @Override
     public List<StudentDto> getAllStudents() {
         List<Student> all = studentDAO.getAll();
         List<StudentDto> allStudents = new ArrayList<>();

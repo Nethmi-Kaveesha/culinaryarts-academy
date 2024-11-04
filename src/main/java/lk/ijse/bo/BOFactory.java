@@ -1,33 +1,31 @@
 package lk.ijse.bo;
 
-import lk.ijse.bo.custom.impl.StudentBOImpl;
+
 import lk.ijse.bo.custom.impl.ProgramBOImpl;
-import lk.ijse.bo.custom.impl.UserBOImpl;
+import lk.ijse.bo.custom.impl.RejistrationBOImpl;
+import lk.ijse.bo.custom.impl.StudentBOImpl;
 
 public class BOFactory {
     private static BOFactory boFactory;
+    public BOFactory(){
 
-    private BOFactory() {
     }
-
     public static BOFactory getBoFactory(){
-        return (boFactory==null)? boFactory=new BOFactory() : boFactory;
+        return boFactory == null ? boFactory = new BOFactory() : boFactory;
     }
-
-    public static SuperBO getBO(BOTypes type) {
-        switch (type) {
+    public enum BOTypes{
+       STUDENT ,PROGRAM , USER, REJISTER
+    }
+    public SuperBO getBO(BOTypes boTypes){
+        switch (boTypes){
             case STUDENT:
                 return (SuperBO) new StudentBOImpl();
             case PROGRAM:
                 return (SuperBO) new ProgramBOImpl();
-            case USER:
-                return (SuperBO) new UserBOImpl();
+            case REJISTER:
+                return new RejistrationBOImpl();
             default:
-                throw new IllegalArgumentException("Invalid BO Type");
+                return null;
         }
-    }
-
-    public enum BOTypes {
-        STUDENT, PROGRAM , USER
     }
 }
