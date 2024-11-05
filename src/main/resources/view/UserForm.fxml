@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -20,11 +19,7 @@
                     <left>
                         <AnchorPane prefHeight="600.0" prefWidth="344.0" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="614.0" prefWidth="318.0" stylesheets="@crudDesign.css">
-                                    <styleClass>
-                                        <String fx:value="white-form" />
-                                        <String fx:value="border" />
-                                    </styleClass>
+                                <AnchorPane layoutX="225.0" layoutY="14.0" prefHeight="614.0" prefWidth="318.0" styleClass="border" stylesheets="@crudDesign.css">
                                     <children>
                                         <Label layoutX="14.0" layoutY="31.0" text="User ID">
                                             <font>
@@ -69,7 +64,7 @@
                     <center>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane layoutX="116.0" layoutY="13.0" prefHeight="710.0" prefWidth="817.0" styleClass="white-form" stylesheets="@crudDesign.css">
+                                <AnchorPane layoutX="116.0" layoutY="13.0" prefHeight="710.0" prefWidth="817.0" stylesheets="@crudDesign.css">
                                     <children>
                                         <TableView fx:id="user_table" layoutX="28.0" layoutY="1.0" prefHeight="617.0" prefWidth="707.0">
                                             <columns>

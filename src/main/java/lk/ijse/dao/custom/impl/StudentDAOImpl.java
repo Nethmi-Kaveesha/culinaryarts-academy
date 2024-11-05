@@ -20,6 +20,7 @@ public class StudentDAOImpl implements StudentDAO {
         return true;
     }
 
+
     public boolean update(Student object) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();

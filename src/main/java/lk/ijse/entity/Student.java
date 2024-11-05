@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @Getter
 @Entity
 @Table(name = "students")
-public class Student {
+public class Student implements Serializable {
 
     @Id
     private String id;
@@ -23,8 +24,8 @@ public class Student {
     private String phone;
     private String address;
 
-    @OneToMany(mappedBy = "student")
-    private List<Enrollment> enrollmentList;
+//   @OneToMany(mappedBy = "student")
+//    private List<Enrollment> enrollmentList;
 
 
     public Student() {}

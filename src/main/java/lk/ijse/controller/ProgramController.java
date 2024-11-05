@@ -7,10 +7,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
+
 import lk.ijse.bo.custom.ProgramBO;
 import lk.ijse.bo.custom.impl.ProgramBOImpl;
 import lk.ijse.dto.ProgramDto;
+import lk.ijse.util.Regex;
+import lk.ijse.util.TextFields;
 import lk.ijse.view.tdm.ProgramTm;
 
 import java.util.List;
@@ -124,7 +126,26 @@ public class ProgramController {
             return;
         }
 
-        // Save the program details
+        // Validate program_id, program_duration, and program_fee
+        if (!Regex.isTextFieldValid(TextFields.ProgramID, program_id.getText())) {
+            new Alert(Alert.AlertType.WARNING, "Invalid Program ID").show();
+            program_id.requestFocus();
+            return;
+        }
+
+        if (!Regex.isTextFieldValid(TextFields.ProgramDuration, program_duration.getText())) {
+            new Alert(Alert.AlertType.WARNING, "Invalid Program Duration").show();
+            program_duration.requestFocus();
+            return;
+        }
+
+        if (!Regex.isTextFieldValid(TextFields.ProgramFee, program_fee.getText())) {
+            new Alert(Alert.AlertType.WARNING, "Invalid Program Fee").show();
+            program_fee.requestFocus();
+            return;
+        }
+
+        // Save the program details if all validations pass
         boolean isSaved = programBO.save(new ProgramDto(program_id.getText(), selectedProgramName, program_duration.getText(), program_fee.getText()));
         if (isSaved) {
             loadAllPrograms();

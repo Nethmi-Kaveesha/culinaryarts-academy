@@ -10,6 +10,8 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.bo.custom.UserBO;
 import lk.ijse.bo.custom.impl.UserBOImpl;
 import lk.ijse.dto.UserDto;
+import lk.ijse.util.Regex;
+import lk.ijse.util.TextFields;
 import lk.ijse.view.tdm.UserTm;
 
 import java.util.List;
@@ -118,21 +120,34 @@ public class UserFormController {
     }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
-        boolean isSaved = userBO.save(new UserDto(
-                user_id.getText(),
-                user_name.getText(),
-                user_password.getText(),
-                user_role.getValue(),
-                user_email.getText() // Added email here
-        ));
-        if(isSaved){
-            new Alert(Alert.AlertType.CONFIRMATION, "User Saved").show();
-            loadAllUsers(); // Refresh the table
-            clearFields();
+        // Validate each field using Regex
+        boolean isUserIDValid = Regex.isTextFieldValid(TextFields.UserID, user_id.getText());
+        boolean isUserNameValid = Regex.isTextFieldValid(TextFields.UserName, user_name.getText());
+        boolean isUserEmailValid = Regex.isTextFieldValid(TextFields.UserEmail, user_email.getText());
+        boolean isUserPasswordValid = Regex.isTextFieldValid(TextFields.UserPassword, user_password.getText());
+
+        // Check if all fields are valid
+        if (isUserIDValid && isUserNameValid && isUserEmailValid && isUserPasswordValid) {
+            boolean isSaved = userBO.save(new UserDto(
+                    user_id.getText(),
+                    user_name.getText(),
+                    user_password.getText(),
+                    user_role.getValue(),
+                    user_email.getText() // Added email here
+            ));
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "User Saved").show();
+                loadAllUsers(); // Refresh the table
+                clearFields();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "User Not Saved").show();
+            }
         } else {
-            new Alert(Alert.AlertType.ERROR, "User Not Saved").show();
+            // Show an error alert for invalid fields
+            new Alert(Alert.AlertType.ERROR, "Please check your input. All fields must be valid.").show();
         }
     }
+
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         boolean isUpdated = userBO.update(new UserDto(

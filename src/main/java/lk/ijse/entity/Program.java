@@ -6,27 +6,27 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Setter
 @Getter
-@Entity
-@Table(name = "programs") // Specify the table name in the database
+@Setter
+@Entity // Mark as a JPA entity
+@Table(name = "program") // Specify table name
 public class Program {
 
     @Id // Mark this field as the primary key
-
+    @Column(name = "program_code") // Specify column name in the database
     private String programCode;
 
-
+    @Column(name = "program_name") // Specify column name
     private String programName;
 
+    @Column(name = "program_fee") // Specify column name
+    private String programFee; // Consider using BigDecimal if you plan to do arithmetic on fee
 
-    private String programFee; // Can be String to include currency symbols
-
-
+    @Column(name = "program_duration") // Specify column name
     private String programDuration;
-
-    @OneToMany(mappedBy = "program")
-    List<EnrollmentDetails> enrollmentDetails;
+//
+//    @OneToMany(mappedBy = "program", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private List<Enrollment> enrollmentList;
 
     // Default constructor required by JPA
     public Program() {

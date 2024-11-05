@@ -2,128 +2,176 @@ package lk.ijse.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import lk.ijse.bo.BOFactory;
+
+import lk.ijse.bo.custom.UserBO;
+import lk.ijse.dto.UserDto;
+import lk.ijse.util.Regex;
+import lk.ijse.util.TextFields;
+
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+
+import java.sql.SQLException;
 
 public class LoginFormController {
 
-    @FXML
-    private BorderPane login_form; // Reference to the login form
-    @FXML
-    private BorderPane signup_form; // Reference to the signup form
+    private AnchorPane centerNode;
+
+    public void setCenterNode(AnchorPane centerNode) {
+        this.centerNode = centerNode;
+    }
+    public Text txtForgotPassword;
 
     @FXML
-    private TextField si_username; // Username field for login
-    @FXML
-    private TextField si_password; // Password field for login
+    private PasswordField txtPassword;
 
-    @FXML
-    private TextField su_username; // Username field for signup
-    @FXML
-    private TextField su_password; // Password field for signup
+    public TextField txtUsername;
 
-    @FXML
-    private Button si_loginBtn; // Login button
-    @FXML
-    private Button su_signupBtn; // Signup button
+    public AnchorPane rootNode;
 
-    @FXML
-    private Button si_createAccountBtn; // Button to switch to signup form
-    @FXML
-    private Button su_loginAccountBtn; // Button to switch to login form
+    public static String tempUsername;
 
-    @FXML
-    private Label loginErrorLabel; // Label for login errors
-    @FXML
-    private Label signupErrorLabel; // Label for signup errors
+    UserBO userBO = (UserBO) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
 
-    // Simulated user database
-    private static final Map<String, String> userDatabase = new HashMap<>();
+    public void btnLoginOnAction(ActionEvent event) throws IOException {
+        String userName = txtUsername.getText();
+        String pw = txtPassword.getText();
 
-    @FXML
-    private void initialize() {
-        // Prepopulate with some users for testing
-        userDatabase.put("admin", "password"); // Example user
+        try {
+            checkCredentials(userName,pw);
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+
+    }
+
+
+    public void checkCredentials(String userName, String pw) throws SQLException, IOException {
+        if(userName.isEmpty() && pw.isEmpty()){
+            new Alert(Alert.AlertType.INFORMATION,"Empty fields! Try again").show();
+            return;
+        }
+
+        if(userName.isEmpty()){
+            new Alert(Alert.AlertType.INFORMATION,"Username is empty! Try again").show();
+            return;
+        }
+
+        if(pw.isEmpty()){
+            new Alert(Alert.AlertType.INFORMATION,"Password is empty! Try again").show();
+            return;
+        }
+
+        UserDto userDto = userBO.checkData(userName,pw);
+
+
+        if (userDto == null) {
+            new Alert(Alert.AlertType.INFORMATION,"Sorry! Username can't be found").show();
+            return;
+        }
+
+        if (!userDto.getPassword().equals(pw)) {
+            new Alert(Alert.AlertType.ERROR,"Sorry! Password is incorrect").show();
+            return;
+        }
+
+        navigateToTheDashboard();
+    }
+
+
+    public  void navigateToTheDashboard() throws IOException {
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/dashboardForm.fxml"));
+        Scene scene = new Scene(rootNode);
+        Stage stage =(Stage) this.rootNode.getScene().getWindow();
+        stage.setScene(scene);
+
+        stage.setTitle("Dashboard Form");
+        stage.centerOnScreen();
     }
 
     @FXML
-    private void handleLogin() {
-        String username = si_username.getText();
-        String password = si_password.getText();
+    void hyperlinkSignUpOnAction(ActionEvent event) throws IOException {
+        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/register_form.fxml"));
+        Scene scene = new Scene(rootNode);
+        Stage stage = (Stage) this.rootNode.getScene().getWindow();
+        stage.setScene(scene);
 
-        // Perform login validation
-        if (validateLogin(username, password)) {
-            String userId = username; // Simulated user ID, can be changed to an actual ID retrieval from DB
+        stage.setTitle("Register Form");
+        stage.centerOnScreen();
+    }
 
-            try {
-                Stage stage = (Stage) si_loginBtn.getScene().getWindow();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/dashboardForm.fxml"));
-                Scene dashboardScene = new Scene(loader.load());
+    public void txtForgotPasswordOnAction(MouseEvent event) throws IOException {
+        tempUsername = txtUsername.getText();
+        String pw = txtPassword.getText();
 
-                // Pass user ID to the dashboard controller
-                DashboardFormController dashboardController = loader.getController();
-                dashboardController.setUserId(userId);
+        try {
+            checkPasswordCredentials(tempUsername);
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+    }
+    public void checkPasswordCredentials(String tempUsername) throws SQLException, IOException {
 
-                stage.setScene(dashboardScene);
-                stage.setTitle("Dashboard");
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-                loginErrorLabel.setText("Error loading dashboard.");
-            }
-        } else {
-            loginErrorLabel.setText("Invalid username or password.");
+        UserDto userDto = userBO.checkPasswordCredential(tempUsername);
+
+        if(tempUsername.isEmpty()) {
+            new Alert(Alert.AlertType.INFORMATION, "Empty Fields!Enter username").show();
+        }
+
+        else if (userDto.getUsername().equals(tempUsername)) {
+            AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/forgotPassword_form.fxml"));
+            Scene scene = new Scene(rootNode);
+            Stage stage = (Stage) txtForgotPassword.getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Reset Password");
+            stage.centerOnScreen();
+
+
+        }
+        else{
+            new Alert(Alert.AlertType.ERROR, "Sorry!Invalid username").show();
+        }
+    }
+    @FXML
+    void txtPasswordOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFields.UserPassword,txtPassword);
+    }
+
+    @FXML
+    void txtUsernameOnKeyReleased(KeyEvent event) {
+        Regex.setTextColor(TextFields.UserName,txtUsername);
+    }
+
+    public boolean isUsernameValid(){
+        if(!Regex.setTextColor(TextFields.UserName,txtUsername));
+        return true;
+    }
+
+    public boolean isPasswordValid(){
+        if(!Regex.setTextColor(TextFields.UserPassword,txtPassword));
+        return true;
+    }
+    @FXML
+    void txtUsernameOnAction(ActionEvent event) {
+        if(isUsernameValid()){
+            new Alert(Alert.AlertType.INFORMATION,"Invalid username!").show();
         }
     }
 
     @FXML
-    private void handleSignUp() {
-        String username = su_username.getText();
-        String password = su_password.getText();
-
-        if (validateSignup(username, password)) {
-            userDatabase.put(username, password);
-            su_username.clear();
-            su_password.clear();
-            switchToLoginForm(); // Switch back to the login form
-        } else {
-            signupErrorLabel.setText("Username already exists or invalid input.");
+    void txtPasswordOnAction(ActionEvent event) {
+        if (isPasswordValid()){
+            new Alert(Alert.AlertType.INFORMATION,"Invalid Password!").show();
         }
-    }
-
-    @FXML
-    private void switchToSignupForm() {
-        login_form.setVisible(false);
-        signup_form.setVisible(true);
-    }
-
-    @FXML
-    private void switchToLoginForm() {
-        signup_form.setVisible(false);
-        login_form.setVisible(true);
-    }
-
-    private boolean validateLogin(String username, String password) {
-        return userDatabase.containsKey(username) && userDatabase.get(username).equals(password);
-    }
-
-    private boolean validateSignup(String username, String password) {
-        return username != null && !username.isEmpty() && password != null && password.length() >= 6 && !userDatabase.containsKey(username);
-    }
-
-    public void handleLoginAccount(ActionEvent actionEvent) {
-        // Additional logic if needed when switching accounts
-    }
-
-    public void handleCreateAccount(ActionEvent actionEvent) {
-        // Additional logic if needed when creating an account
     }
 }

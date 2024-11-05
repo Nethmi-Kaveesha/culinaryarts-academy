@@ -1,11 +1,20 @@
 package lk.ijse.dao.custom;
 
 import lk.ijse.dao.CrudDAO;
-import lk.ijse.entity.User; // Change from Student to User
+import lk.ijse.entity.User;
 
 import java.util.List;
 
-public interface UserDAO extends CrudDAO<User> { // Change interface name to UserDAO
-    boolean search(User user); // Change parameter type to User
-    List<User> getAll(); // This remains the same, as it will return a list of User
+public interface UserDAO extends CrudDAO<User> {
+    boolean search(User user); // Search for a user based on the User object
+
+    User getUserByUsernameAndPassword(String username, String password);
+
+    User getUserByUsername(String username);
+
+    List<User> getAll(); // Retrieve all users
+
+    User authenticate(String username, String password); // Validate user credentials
+
+    User findByUsername(String username); // Find a user by username
 }

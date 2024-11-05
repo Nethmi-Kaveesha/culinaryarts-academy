@@ -7,8 +7,9 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
+
 @Entity
 @Table(name = "user") // Specify the table name in the database
 public class User {

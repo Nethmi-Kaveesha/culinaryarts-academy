@@ -3,8 +3,9 @@ package lk.ijse.view.tdm;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
+
 public class StudentTm {
 
     private String id;          // Unique identifier for the student

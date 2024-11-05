@@ -10,6 +10,8 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.bo.custom.StudentBO;
 import lk.ijse.bo.custom.impl.StudentBOImpl;
 import lk.ijse.dto.StudentDto;
+import lk.ijse.util.Regex;
+import lk.ijse.util.TextFields;
 import lk.ijse.view.tdm.StudentTm;
 
 import java.time.LocalDate;
@@ -19,7 +21,7 @@ public class StudentFormController {
 
     public AnchorPane rootNode;
     @FXML
-    private TableColumn<StudentTm, String> stuAddress_col;
+    private TableColumn<?,?> stuAddress_col;
 
     @FXML
     private Button stuClearBtn;
@@ -28,19 +30,19 @@ public class StudentFormController {
     private Button stuDeleteBtn;
 
     @FXML
-    private TableColumn<StudentTm, String> stuEmail_col;
+    private TableColumn<?,?> stuEmail_col;
 
     @FXML
-    private TableColumn<StudentTm, String> stuGender_col;
+    private TableColumn<?,?> stuGender_col;
 
     @FXML
-    private TableColumn<StudentTm, String> stuId_col;
+    private TableColumn<?,?> stuId_col;
 
     @FXML
-    private TableColumn<StudentTm, String> stuName_col;
+    private TableColumn<?,?> stuName_col;
 
     @FXML
-    private TableColumn<StudentTm, String> stuPhone_col;
+    private TableColumn<?,?> stuPhone_col;
 
     @FXML
     private Button stu_AddBtn;
@@ -67,7 +69,7 @@ public class StudentFormController {
     private TextField stu_name;
 
     @FXML
-    private TableColumn<StudentTm, String> stuBirthday_col;
+    private TableColumn<?,?> stuBirthday_col;
 
     @FXML
     private TextField stu_phone;
@@ -157,23 +159,40 @@ public class StudentFormController {
 
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
-        // Call generateNewId to get a new student ID
-        String newId = studentBO.generateNewId();
+        // Validate text fields
+        boolean isValid = true;
 
-        // Set the generated ID to the ID text field
-        stu_id.setText(newId);
+        isValid &= Regex.setTextColor(TextFields.StudentID, stu_id);
+        isValid &= Regex.setTextColor(TextFields.FullName, stu_name);
+        isValid &= Regex.setTextColor(TextFields.Email, stu_email);
+        isValid &= Regex.setTextColor(TextFields.Phone, stu_phone);
+        isValid &= Regex.setTextColor(TextFields.Address, stu_Address);
 
-        // Save the new student with the generated ID
-        boolean isSaved = studentBO.save(new StudentDto(newId, stu_name.getText(), stu_gender.getValue(), stu_birthday.getValue(), stu_email.getText(), stu_phone.getText(), stu_Address.getText()));
+        // Proceed only if all fields are valid
+        if (isValid) {
+            boolean isSaved = studentBO.save(new StudentDto(
+                    stu_id.getText(),
+                    stu_name.getText(),
+                    stu_gender.getValue(),
+                    stu_birthday.getValue(),
+                    stu_email.getText(),
+                    stu_phone.getText(),
+                    stu_Address.getText()
+            ));
 
-        if (isSaved) {
-            loadAllStudents();
-            clearFields();
-            new Alert(Alert.AlertType.CONFIRMATION, "Student Saved").show();
+            if (isSaved) {
+                loadAllStudents();
+                clearFields();
+                new Alert(Alert.AlertType.CONFIRMATION, "Student Saved").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Student UnSaved").show();
+            }
         } else {
-            new Alert(Alert.AlertType.ERROR, "Student UnSaved").show();
+            new Alert(Alert.AlertType.WARNING, "Please correct the highlighted fields.").show();
         }
     }
+
+
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         boolean isUpdated = studentBO.update(new StudentDto(stu_id.getText(), stu_name.getText(), stu_gender.getValue(), stu_birthday.getValue(), stu_email.getText(), stu_phone.getText(), stu_Address.getText()));

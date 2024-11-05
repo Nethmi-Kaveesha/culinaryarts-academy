@@ -2,7 +2,7 @@ package lk.ijse.bo;
 
 
 import lk.ijse.bo.custom.impl.ProgramBOImpl;
-import lk.ijse.bo.custom.impl.RejistrationBOImpl;
+//import lk.ijse.bo.custom.impl.RejistrationBOImpl;
 import lk.ijse.bo.custom.impl.StudentBOImpl;
 
 public class BOFactory {
@@ -19,11 +19,10 @@ public class BOFactory {
     public SuperBO getBO(BOTypes boTypes){
         switch (boTypes){
             case STUDENT:
-                return (SuperBO) new StudentBOImpl();
+                return  new StudentBOImpl();
             case PROGRAM:
                 return (SuperBO) new ProgramBOImpl();
-            case REJISTER:
-                return new RejistrationBOImpl();
+
             default:
                 return null;
         }

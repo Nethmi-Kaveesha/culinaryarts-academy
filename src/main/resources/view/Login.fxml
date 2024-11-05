@@ -1,89 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<!-- Link to your controller class -->
-
-<AnchorPane prefHeight="594.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
+<AnchorPane fx:id="rootNode" prefHeight="798.0" prefWidth="964.0" style="-fx-background-color: #988F88;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
    <children>
-      <BorderPane fx:id="login_form" prefHeight="594.0" prefWidth="825.0">
-         <left>
-            <AnchorPane prefHeight="558.0" prefWidth="426.0" styleClass="other-form" stylesheets="@design.css" BorderPane.alignment="TOP_LEFT">
-               <children>
-                  <Label layoutX="102.0" layoutY="211.0" text="The Culinary Academy" textFill="WHITE">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="179.0" layoutY="432.0" text="Register Account" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <!-- Create Account Button -->
-                  <Button fx:id="si_createAccountBtn" layoutX="96.0" layoutY="465.0" mnemonicParsing="false" onAction="#handleCreateAccount" prefHeight="38.0" prefWidth="268.0" styleClass="create-btn" stylesheets="@design.css" text="Create Account" />
-               </children>
-            </AnchorPane>
-         </left>
-         <right>
-            <AnchorPane prefHeight="594.0" prefWidth="390.0" BorderPane.alignment="TOP_RIGHT">
-               <children>
-                  <Label layoutX="133.0" layoutY="106.0" styleClass="white-form" stylesheets="@design.css" text="Login User Form" textFill="#5a3375">
-                     <font>
-                        <Font name="Tahoma" size="20.0" />
-                     </font>
-                  </Label>
-                  <!-- Username and Password Fields -->
-                  <TextField fx:id="si_username" layoutX="94.0" layoutY="222.0" prefHeight="34.0" prefWidth="222.0" promptText="Username" />
-                  <TextField fx:id="si_password" layoutX="94.0" layoutY="280.0" prefHeight="34.0" prefWidth="222.0" promptText="Password" />
-                  <!-- Login Button -->
-                  <Button fx:id="si_loginBtn" layoutX="119.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="40.0" prefWidth="173.0" styleClass="other-form" stylesheets="@design.css" text="Login" />
-               </children>
-            </AnchorPane>
-         </right>
-      </BorderPane>
+      <AnchorPane layoutX="479.0" layoutY="-6.0" prefHeight="806.0" prefWidth="458.0" style="-fx-border-color: darkblue; -fx-background-color: #30393E;">
+         <children>
+            <AnchorPane layoutX="473.0" layoutY="2.0" prefHeight="800.0" prefWidth="2.0" style="-fx-background-color: #DCFAEB;" />
+            <ImageView fitHeight="445.0" fitWidth="430.0" layoutX="26.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/istockphoto-146902493-612x612.jpg" />
+               </image>
+            </ImageView>
+            <Text fill="#988f88" layoutX="88.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cooking &amp; Artisty">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#988f88" height="17.0" layoutY="529.0" stroke="#988f88" strokeType="INSIDE" width="470.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#988f88" height="17.0" layoutX="-3.0" layoutY="225.0" stroke="#988f88" strokeType="INSIDE" width="470.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#988f88" height="321.0" layoutY="225.0" stroke="#988f88" strokeType="INSIDE" width="30.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#988f88" height="321.0" layoutX="441.0" layoutY="225.0" stroke="#988f88" strokeType="INSIDE" width="30.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#988f88" height="17.0" layoutX="-9.0" layoutY="753.0" stroke="#988f88" strokeType="INSIDE" width="487.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#988f88" height="17.0" layoutX="-9.0" layoutY="725.0" stroke="#988f88" strokeType="INSIDE" width="487.0" />
+         </children>
+      </AnchorPane>
+      <Pane layoutX="-2.0" prefHeight="798.0" prefWidth="480.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <TextField fx:id="txtUsername" layoutX="75.0" layoutY="231.0" onAction="#txtUsernameOnAction" onKeyReleased="#txtUsernameOnKeyReleased" prefHeight="37.0" prefWidth="299.0" promptText="Username" style="-fx-background-radius: 10;" />
+            <Button layoutX="75.0" layoutY="473.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="37.0" prefWidth="299.0" style="-fx-background-color: #222f3e; -fx-background-radius: 10;" text="Log In" textFill="#f5efeff7">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
 
-      <!-- Sign-up Form (Initially Hidden) -->
-      <BorderPane fx:id="signup_form" layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" visible="false">
-         <left>
-            <AnchorPane prefHeight="594.0" prefWidth="425.0" styleClass="other-form" stylesheets="@design.css" BorderPane.alignment="TOP_LEFT">
-               <children>
-                  <Label layoutX="102.0" layoutY="211.0" text="The Culinary Academy" textFill="WHITE">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="152.0" layoutY="433.0" text="Already Have an Account" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <!-- Login Button in Signup Form -->
-                  <Button fx:id="su_loginAccountBtn" layoutX="96.0" layoutY="465.0" mnemonicParsing="false" onAction="#handleLoginAccount" prefHeight="38.0" prefWidth="268.0" styleClass="create-btn" stylesheets="@design.css" text="Login Account" />
-               </children>
-            </AnchorPane>
-         </left>
-         <right>
-            <AnchorPane prefHeight="594.0" prefWidth="390.0" BorderPane.alignment="TOP_RIGHT">
-               <children>
-                  <Label layoutX="133.0" layoutY="106.0" styleClass="white-form" stylesheets="@design.css" text="REGISTER USER FORM" textFill="#5a3375">
-                     <font>
-                        <Font name="Tahoma" size="20.0" />
-                     </font>
-                  </Label>
-                  <!-- Signup Username and Password Fields -->
-                  <TextField fx:id="su_username" layoutX="94.0" layoutY="222.0" prefHeight="34.0" prefWidth="222.0" promptText="Username" />
-                  <TextField fx:id="su_password" layoutX="94.0" layoutY="280.0" prefHeight="34.0" prefWidth="222.0" promptText="Password" />
-                  <!-- Signup Button -->
-                  <Button fx:id="su_signupBtn" layoutX="119.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleSignUp" prefHeight="40.0" prefWidth="173.0" styleClass="other-form" stylesheets="@design.css" text="SignUp" />
-               </children>
-            </AnchorPane>
-         </right>
-      </BorderPane>
+            <Text fx:id="txtForgotPassword" fill="#000946" layoutX="262.0" layoutY="390.0" onMouseClicked="#txtForgotPasswordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" />
+            <Text layoutX="104.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Hyperlink layoutX="294.0" layoutY="533.0" onAction="#hyperlinkSignUpOnAction" text="Sign Up" textFill="#010e61">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Hyperlink>
+            <PasswordField fx:id="txtPassword" layoutX="75.0" layoutY="330.0" onAction="#txtPasswordOnAction" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="37.0" prefWidth="299.0" promptText="Password" style="-fx-background-radius: 10;" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#30393e" height="17.0" layoutY="37.0" stroke="#988f88" strokeType="INSIDE" width="480.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#30393e" height="17.0" layoutY="64.0" stroke="#988f88" strokeType="INSIDE" width="480.0" />
+
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

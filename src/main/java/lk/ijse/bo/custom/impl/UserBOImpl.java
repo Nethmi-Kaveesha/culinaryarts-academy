@@ -14,21 +14,18 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public boolean save(UserDto userDto) {
-        // Convert UserDto to User entity and save
         User user = new User(userDto.getUserId(), userDto.getUsername(), userDto.getPassword(), userDto.getRole(), userDto.getEmail());
         return userDAO.save(user);
     }
 
     @Override
     public boolean update(UserDto userDto) {
-        // Convert UserDto to User entity and update
         User user = new User(userDto.getUserId(), userDto.getUsername(), userDto.getPassword(), userDto.getRole(), userDto.getEmail());
         return userDAO.update(user);
     }
 
     @Override
     public boolean delete(UserDto userDto) {
-        // Use userId for deletion
         return userDAO.delete(new User(userDto.getUserId(), null, null, null, null));
     }
 
@@ -38,8 +35,19 @@ public class UserBOImpl implements UserBO {
     }
 
     @Override
+    public UserDto checkData(String username, String password) {
+        User user = userDAO.getUserByUsernameAndPassword(username, password);
+        return user != null ? new UserDto(user.getUserId(), user.getUsername(), user.getPassword(), user.getRole(), user.getEmail()) : null;
+    }
+
+    @Override
+    public UserDto checkPasswordCredential(String username) {
+        User user = userDAO.getUserByUsername(username);
+        return user != null ? new UserDto(user.getUserId(), user.getUsername(), user.getPassword(), user.getRole(), user.getEmail()) : null;
+    }
+
+    @Override
     public List<UserDto> getAllUsers() {
-        // Retrieve all users and convert to UserDto list
         List<User> allUsers = userDAO.getAll();
         List<UserDto> userDtos = new ArrayList<>();
         for (User user : allUsers) {
@@ -50,7 +58,6 @@ public class UserBOImpl implements UserBO {
 
     @Override
     public String generateUserId() {
-        // Assuming you have a method to get all users
         List<UserDto> userList = getAllUsers();
         int maxId = 0;
 

@@ -1,6 +1,6 @@
 package lk.ijse.dao;
 
-import lk.ijse.dao.custom.impl.EnrollmentDetailDAOImpl;
+//import lk.ijse.dao.custom.impl.EnrollmentDetailDAOImpl;
 import lk.ijse.dao.custom.impl.ProgramDAOImpl;
 import lk.ijse.dao.custom.impl.StudentDAOImpl;
 
@@ -21,10 +21,7 @@ public class DAOFactory {
                 return new StudentDAOImpl();
             case PROGRAM:
                 return new ProgramDAOImpl();
-            case ENROLLMENT:
-                return new EnrollmentDetailDAOImpl();
-            case ENROLLMENTDETAILS:
-                return new EnrollmentDetailDAOImpl();
+
             default:
                 return null;
         }
