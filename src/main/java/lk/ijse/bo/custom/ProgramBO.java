@@ -1,10 +1,11 @@
 package lk.ijse.bo.custom;
 
+import lk.ijse.bo.SuperBO;
 import lk.ijse.dto.ProgramDto;
 
 import java.util.List;
 
-public interface ProgramBO {
+public interface ProgramBO extends SuperBO {
     boolean save(ProgramDto programDto);
     boolean update(ProgramDto programDto);
     boolean delete(ProgramDto programDto);

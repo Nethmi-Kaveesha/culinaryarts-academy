@@ -6,6 +6,7 @@ import lk.ijse.dao.custom.impl.UserDAOImpl;
 import lk.ijse.dto.UserDto;
 import lk.ijse.entity.User;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,15 +36,14 @@ public class UserBOImpl implements UserBO {
     }
 
     @Override
-    public UserDto checkData(String username, String password) {
-        User user = userDAO.getUserByUsernameAndPassword(username, password);
-        return user != null ? new UserDto(user.getUserId(), user.getUsername(), user.getPassword(), user.getRole(), user.getEmail()) : null;
+    public UserDto checkData(String userName,String pw) throws SQLException {
+        User user = userDAO.checkCredentials(userName,pw);
+        return new UserDto(user.getUserId(),user.getUsername(),user.getPassword(),user.getRole(),user.getEmail());
     }
-
     @Override
-    public UserDto checkPasswordCredential(String username) {
-        User user = userDAO.getUserByUsername(username);
-        return user != null ? new UserDto(user.getUserId(), user.getUsername(), user.getPassword(), user.getRole(), user.getEmail()) : null;
+    public UserDto  checkPasswordCredential(String tempUsername) throws SQLException {
+        User user = userDAO.checkPassword(tempUsername);
+        return new UserDto(user.getUserId(),user.getUsername(),user.getPassword(),user.getRole(),user.getEmail());
     }
 
     @Override

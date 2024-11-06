@@ -4,46 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="848c05aa-e752-4598-b4c9-9921316dc4ea" name="Changes" comment="done-rejister">
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/util/Regex.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/util/TextFields.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/istockphoto-146902493-612x612.jpg" afterDir="false" />
+    <list default="true" id="848c05aa-e752-4598-b4c9-9921316dc4ea" name="Changes" comment="FIX-ERRORS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/LaunchWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/LaunchWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/BOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/BOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/custom/RejistrationBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/custom/RejistrationBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/custom/StudentBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/custom/StudentBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/custom/ProgramBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/custom/ProgramBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/custom/UserBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/custom/UserBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/custom/impl/RejistrationBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/custom/impl/RejistrationBOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/custom/impl/UserBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/bo/custom/impl/UserBOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/config/FactoryConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/config/FactoryConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/LoginFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/ProgramController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/ProgramController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/RejistrationFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/RejistrationFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/StudentFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/StudentFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/UserFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/controller/UserFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/DAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/EnrollmentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/EnrollmentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/EnrollmentDetailsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/EnrollmentDetailsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/impl/EnrollmentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/impl/EnrollmentDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/impl/EnrollmentDetailDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/impl/EnrollmentDetailDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/impl/StudentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/impl/StudentDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/impl/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dao/custom/impl/UserDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/EnrollmentDetailsDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/EnrollmentDetailsDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/EnrollmentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/EnrollmentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/StudentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/dto/StudentDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Enrollment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Enrollment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/EnrollmentDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/EnrollmentDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/view/tdm/EnrollmentDetailsTm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/view/tdm/EnrollmentDetailsTm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/view/tdm/StudentTm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/view/tdm/StudentTm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/UserForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/UserForm.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +139,8 @@
       <workItem from="1730645307841" duration="7852000" />
       <workItem from="1730662327822" duration="6076000" />
       <workItem from="1730703435600" duration="19453000" />
-      <workItem from="1730791006049" duration="20774000" />
+      <workItem from="1730791006049" duration="21027000" />
+      <workItem from="1730886371906" duration="2337000" />
     </task>
     <task id="LOCAL-00001" summary="first-day">
       <option name="closed" value="true" />
@@ -227,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730750000274</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="FIX-ERRORS">
+      <option name="closed" value="true" />
+      <created>1730842510256</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730842510331</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +219,7 @@
     <MESSAGE value="fix-user-controller" />
     <MESSAGE value="design-ui" />
     <MESSAGE value="done-rejister" />
-    <option name="LAST_COMMIT_MESSAGE" value="done-rejister" />
+    <MESSAGE value="FIX-ERRORS" />
+    <option name="LAST_COMMIT_MESSAGE" value="FIX-ERRORS" />
   </component>
 </project>

@@ -7,6 +7,8 @@ import lk.ijse.entity.User;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
@@ -115,4 +117,32 @@ public class UserDAOImpl implements UserDAO {
         // Implement the search logic if needed
         return false; // Implement this method if searching is required
     }
+
+    @Override
+    public User checkCredentials(String username, String password) {
+        try (Session session = FactoryConfiguration.getInstance().getSession()) {
+            String hql = "FROM User WHERE username = :username AND password = :password";
+            Query<User> query = session.createQuery(hql, User.class);
+            query.setParameter("username", username);
+            query.setParameter("password", password);
+            return query.uniqueResult(); // Returns null if no user found
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public User checkPassword(String tempUsername) {
+        try (Session session = FactoryConfiguration.getInstance().getSession()) {
+            String hql = "FROM User WHERE username = :username";
+            Query<User> query = session.createQuery(hql, User.class);
+            query.setParameter("username", tempUsername);
+            return query.uniqueResult(); // Returns null if no user found
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
