@@ -1,6 +1,7 @@
 package lk.ijse.bo;
 
 
+import lk.ijse.bo.custom.impl.EnrollmentBOImpl;
 import lk.ijse.bo.custom.impl.ProgramBOImpl;
 //import lk.ijse.bo.custom.impl.RejistrationBOImpl;
 import lk.ijse.bo.custom.impl.StudentBOImpl;
@@ -11,11 +12,12 @@ public class BOFactory {
     public BOFactory(){
 
     }
+    
     public static BOFactory getBoFactory(){
         return boFactory == null ? boFactory = new BOFactory() : boFactory;
     }
     public enum BOTypes{
-       STUDENT ,PROGRAM , USER, REJISTER
+       STUDENT ,PROGRAM , USER, Enrollment
     }
     public SuperBO getBO(BOTypes boTypes){
         switch (boTypes){
@@ -25,6 +27,8 @@ public class BOFactory {
                 return new ProgramBOImpl();
             case USER:
                 return new UserBOImpl();
+            case Enrollment:
+                return new EnrollmentBOImpl();
             default:
                 return null;
         }

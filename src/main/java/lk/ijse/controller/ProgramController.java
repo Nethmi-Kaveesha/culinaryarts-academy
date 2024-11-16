@@ -133,11 +133,11 @@ public class ProgramController {
             return;
         }
 
-        if (!Regex.isTextFieldValid(TextFields.ProgramDuration, program_duration.getText())) {
-            new Alert(Alert.AlertType.WARNING, "Invalid Program Duration").show();
-            program_duration.requestFocus();
-            return;
-        }
+//        if (!Regex.isTextFieldValid(TextFields.ProgramDuration, program_duration.getText())) {
+//            new Alert(Alert.AlertType.WARNING, "Invalid Program Duration").show();
+//            program_duration.requestFocus();
+//            return;
+//        }
 
         if (!Regex.isTextFieldValid(TextFields.ProgramFee, program_fee.getText())) {
             new Alert(Alert.AlertType.WARNING, "Invalid Program Fee").show();

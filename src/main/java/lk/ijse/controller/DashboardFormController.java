@@ -13,6 +13,10 @@ import java.io.IOException;
 
 public class DashboardFormController {
 
+    public Button btnRejister;
+    public Button btnAboutUs;
+    public Button btnContact;
+    public Button btnHome1;
     @FXML
     private Button btnCustomer;
 
@@ -73,5 +77,50 @@ public class DashboardFormController {
     public void setUserId(String userId) {
         this.userId = userId;
         userIdLabel.setText("Welcome, " + userId + "!"); // Display welcome message
+    }
+
+    private void loadRejisterForm() throws IOException {
+        AnchorPane placeOrderForm = FXMLLoader.load(getClass().getResource("/view/order_form.fxml"));
+
+        contentArea.getChildren().clear();
+        contentArea.getChildren().add(placeOrderForm);
+    }
+
+    private void loadAboutUsForm() throws IOException{
+        AnchorPane placeOrderForm = FXMLLoader.load(getClass().getResource("/view/AboutUsForm.fxml"));
+
+        contentArea.getChildren().clear();
+        contentArea.getChildren().add(placeOrderForm);
+    }
+
+    private void loadHomeForm() throws IOException{
+        AnchorPane placeOrderForm = FXMLLoader.load(getClass().getResource("/view/Dashboard.fxml"));
+
+        contentArea.getChildren().clear();
+        contentArea.getChildren().add(placeOrderForm);
+    }
+
+    private void loadContactUsForm() throws IOException{
+        AnchorPane placeOrderForm = FXMLLoader.load(getClass().getResource("/view/ContactUsForm.fxml"));
+
+        contentArea.getChildren().clear();
+        contentArea.getChildren().add(placeOrderForm);
+    }
+
+
+    public void btnRejisterOnAction(ActionEvent actionEvent) throws IOException {
+        loadRejisterForm();
+    }
+
+    public void btnAboutOnAction(ActionEvent event) throws IOException {
+        loadAboutUsForm();
+    }
+
+    public void btnContactOnAction(ActionEvent event) throws IOException {
+        loadContactUsForm();
+    }
+
+    public void btnHomeOnAction(ActionEvent event) throws IOException {
+        loadHomeForm();
     }
 }

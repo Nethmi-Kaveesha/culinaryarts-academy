@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="654" prefWidth="1536.0" style="-fx-background-color: #f9f9f9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+
+    <!-- Header Section -->
+    <VBox alignment="CENTER" prefHeight="151.0" prefWidth="1565.0" spacing="10" style="-fx-background-color: #1e5fb8; -fx-padding: 20;">
+        <Label style="-fx-font-size: 48; -fx-text-fill: white; -fx-font-weight: bold;" text="About Us" />
+        <Label style="-fx-font-size: 20; -fx-text-fill: #f9f9f9; -fx-font-style: italic;" text="Welcome to The Culinary Academy" />
+    </VBox>
+
+    <!-- Scrollable Content -->
+    <ScrollPane layoutX="-1.0" layoutY="151.0" prefHeight="484" prefWidth="1534.0" style="-fx-background-color: transparent;">
+        <VBox spacing="30" style="-fx-padding: 30;">
+
+            <!-- Introduction -->
+            <VBox prefHeight="204.0" prefWidth="1017.0" spacing="15" style="-fx-background-color: #f4f4f4; -fx-padding: 20; -fx-border-color: #dddddd; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <Label style="-fx-font-size: 32; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Who We Are" />
+                <TextArea editable="false" prefHeight="100" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-font-size: 16;" text="The Culinary Academy is a premier institution in Sri Lanka, dedicated to shaping the next generation of culinary professionals. Established over a decade ago, we welcome 2,500 students annually, providing a blend of theoretical knowledge and hands-on culinary experience." wrapText="true" />
+            </VBox>
+
+            <!-- Mission -->
+            <VBox spacing="15" style="-fx-background-color: #f4f4f4; -fx-padding: 20; -fx-border-color: #dddddd; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <Label style="-fx-font-size: 32; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Our Mission" />
+                <Label style="-fx-font-size: 16;" text="To provide world-class culinary education that nurtures talent, fosters creativity, and prepares individuals for rewarding careers in the culinary industry." wrapText="true" />
+            </VBox>
+
+            <!-- Programs Section -->
+            <VBox spacing="15" style="-fx-background-color: #f4f4f4; -fx-padding: 20; -fx-border-color: #dddddd; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <Label style="-fx-font-size: 32; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Our Programs" />
+                <TableView fx:id="programTable" prefHeight="200">
+                    <columns>
+                        <TableColumn prefWidth="150" text="Program ID" />
+                        <TableColumn prefWidth="400" text="Program Name" />
+                        <TableColumn prefWidth="300" text="Duration" />
+                        <TableColumn prefWidth="200" text="Fee (LKR)" />
+                    </columns>
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="P101, Diploma in Culinary Arts, 6 Months, 150,000" />
+                            <String fx:value="P102, Advanced Pastry Techniques, 4 Months, 120,000" />
+                            <String fx:value="P103, Certificate in Baking, 3 Months, 80,000" />
+                            <String fx:value="P104, International Cuisine Masterclass, 1 Year, 250,000" />
+                        </FXCollections>
+                    </items>
+                </TableView>
+            </VBox>
+
+            <!-- Why Choose Us -->
+            <VBox spacing="15" style="-fx-background-color: #f4f4f4; -fx-padding: 20; -fx-border-color: #dddddd; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <Label style="-fx-font-size: 32; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Why Choose Us?" />
+                <ListView fx:id="whyChooseUsList" prefHeight="150">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Decade of Excellence: Over 10 years of experience in culinary education." />
+                            <String fx:value="Expert Faculty: Learn from seasoned chefs and industry professionals." />
+                            <String fx:value="Comprehensive Programs: A balance of theory and practice." />
+                            <String fx:value="Innovative Learning: Modern facilities and digital systems." />
+                        </FXCollections>
+                    </items>
+                </ListView>
+            </VBox>
+
+            <!-- Contact Section -->
+            <HBox alignment="CENTER" spacing="40" style="-fx-padding: 20;">
+                <Label style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Join Us Today!" />
+                <Button style="-fx-background-color: #ff5722; -fx-text-fill: white; -fx-font-size: 18;" text="Contact Us" />
+            </HBox>
+
+        </VBox>
+    </ScrollPane>
+</AnchorPane>

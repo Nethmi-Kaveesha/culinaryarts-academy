@@ -1,0 +1,123 @@
+/* General Styles */
+.root {
+    -fx-background-color: #F9F9F9; /* Creamy White for the root background */
+}
+
+#rootNode {
+    -fx-background-color: #F9F9F9; /* Same creamy white background for the entire root node */
+}
+
+/* Buttons and Action Elements */
+.create-btn {
+    -fx-font-family: "Verdana", sans-serif;
+    -fx-background-color: none;
+    -fx-text-fill: white; /* White text for contrast */
+    -fx-border-radius: 25px;
+    -fx-font-size: 18px;
+    -fx-pref-height: 55px;
+    -fx-pref-width: 160px;
+    -fx-padding: 5px;
+    -fx-cursor: hand; /* Pointer cursor on hover */
+}
+
+.create-btn:hover {
+    -fx-background-color: none;
+    -fx-text-fill: white;
+    -fx-border-style: solid; /* Set the border style to solid */
+    -fx-border-color: grey; /* Set the border color to grey */
+}
+
+/*.create-btn:pressed {*/
+/*    -fx-background-color: #9B1C2E; !* Darker Red for pressed effect *!*/
+/*}*/
+
+/* Content Area */
+#contentArea {
+    -fx-background-color: #FFFFFF; /* White content area for clarity */
+    -fx-padding: 30px;
+    -fx-border-radius: 15px;
+    -fx-border-color: #E0E0E0; /* Soft grey border for subtle separation */
+}
+
+/* Text Styling */
+
+
+.text-description {
+    -fx-fill: #2F4F2F; /* Olive Green for description text */
+    -fx-font-size: 18px;
+    -fx-font-family: "Arial";
+    -fx-line-spacing: 1.5;
+}
+
+.title {
+    -fx-font-size: 65px; /* Bold, large font for titles */
+    -fx-font-style: italic;
+    -fx-fill: #C70039; /* Deep Red for title text */
+    -fx-text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+}
+
+.subtitle {
+    -fx-font-size: 24px;
+    -fx-fill: #2F4F2F; /* Olive Green for subtitles */
+}
+
+/* Navigation Buttons */
+/*#btnHome1, #btnAboutUs, #btnContact, #btnRejister, #btnCustomer, #btnItem, #btnPlace {*/
+/*    -fx-background-color: #C70039; !* Deep Red for navigation buttons *!*/
+/*    -fx-text-fill: white; !* White text for readability *!*/
+/*    -fx-font-size: 18px;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-pref-height: 55px;*/
+/*    -fx-pref-width: 240px;*/
+/*    -fx-border-radius: 25px;*/
+/*    -fx-padding: 14px;*/
+/*    -fx-border-color: #C70039; !* Matching red border *!*/
+/*}*/
+
+
+#btnRejister {
+    -fx-background-color: #C70039; /* Deep Red for register button */
+    -fx-border-radius: 25px;
+    -fx-pref-height: 30px;
+    -fx-pref-width: 160px;
+}
+
+#btnRejister:hover {
+    -fx-background-color: grey; /* Lighter Red on hover */
+    -fx-text-fill: white;
+}
+
+/* Accent and Structural Styles */
+#header {
+    -fx-background-color: #C70039; /* Deep Red for header */
+    -fx-padding: 20px;
+}
+
+#footer {
+    -fx-background-color: #2F4F2F; /* Olive Green footer */
+    -fx-text-fill: white; /* White text on the footer */
+    -fx-padding: 15px;
+    -fx-font-size: 14px;
+    -fx-text-align: center;
+}
+
+/* Content and Cards */
+.card {
+    -fx-background-color: #F9F9F9; /* Creamy White for card backgrounds */
+    -fx-border-radius: 15px;
+    -fx-padding: 20px;
+    -fx-border-color: #C70039; /* Deep Red border */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 3); /* Subtle shadow for depth */
+}
+
+/* Typography and Spacing */
+.text-description {
+    -fx-font-size: 18px;
+    -fx-line-spacing: 1.6;
+}
+
+.subtitle {
+    -fx-font-size: 24px;
+    -fx-fill: #2F4F2F; /* Olive Green for subtitle */
+}
+

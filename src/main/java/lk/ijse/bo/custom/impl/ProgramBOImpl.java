@@ -6,6 +6,7 @@ import lk.ijse.dao.custom.impl.ProgramDAOImpl;
 import lk.ijse.dto.ProgramDto;
 import lk.ijse.entity.Program;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,8 +42,9 @@ public class ProgramBOImpl implements ProgramBO {
     }
 
     @Override
-    public ProgramDto search(String programCode) {
-        return null;
+    public Program search(String programCode) throws SQLException {
+        Program program = programDAO.search(programCode);
+        return new Program(program.getProgramCode(), program.getProgramName(), program.getProgramFee(), program.getProgramDuration());
     }
 
     @Override

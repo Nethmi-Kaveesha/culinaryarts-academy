@@ -1,5 +1,6 @@
 package lk.ijse.config;
 
+import lk.ijse.entity.Enrollment;
 import lk.ijse.entity.Program;
 import lk.ijse.entity.Student;
 import lk.ijse.entity.User;
@@ -12,7 +13,7 @@ public class FactoryConfiguration {
     private SessionFactory sessionFactory;
 
     private FactoryConfiguration(){
-        Configuration configuration=new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(User.class).addAnnotatedClass(Program.class);
+        Configuration configuration=new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(User.class).addAnnotatedClass(Program.class).addAnnotatedClass(Enrollment.class);
         sessionFactory=configuration.buildSessionFactory();
     }
 

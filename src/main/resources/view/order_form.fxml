@@ -6,91 +6,108 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootNode" prefHeight="793.0" prefWidth="741.0" style="-fx-background-color: #85cca1;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RejistrationFormController">
+<AnchorPane fx:id="rootNode" prefHeight="667.0" prefWidth="1546.0" style="-fx-background-color: white;" styleClass="border" stylesheets="@crudDesign.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.RegisterFormController">
    <children>
-      <Text layoutX="281.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rejister FORM">
+
+      <!-- Enrollment Details -->
+      <Text layoutX="190.0" layoutY="111.0" text="Enrollment ID:">
          <font>
-            <Font size="26.0" />
+            <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="32.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Id">
+      <TextField fx:id="txtEnrollmentId" layoutX="328.0" layoutY="86.0" prefHeight="40.0" prefWidth="150.0" promptText="Enter Enrollment ID" />
+
+      <Text layoutX="673.0" layoutY="115.0" text="Date:">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="txtStuName" layoutX="517.0" layoutY="174.0" prefHeight="30.0" prefWidth="162.0" />
-      <Text layoutX="362.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Name">
+      <TextField fx:id="txtDate" layoutX="755.0" layoutY="89.0" prefHeight="40.0" prefWidth="150.0" promptText="Enter Date" />
+
+      <!-- Student Details -->
+      <Text layoutX="211.0" layoutY="177.0" text="Student ID:">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="32.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Program Id">
+      <ComboBox fx:id="cmbStudentId" layoutX="328.0" layoutY="159.0" onAction="#cmbIdSearchOnAction" prefHeight="40.0" prefWidth="150.0" />
+
+      <Text layoutX="614.0" layoutY="177.0" text="Student Name:">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="txtProgram" layoutX="517.0" layoutY="229.0" prefHeight="30.0" prefWidth="162.0" />
-      <Text layoutX="362.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Program">
+      <TextField fx:id="txtStuName" layoutX="752.0" layoutY="151.0" prefHeight="40.0" prefWidth="246.0" promptText="Enter Student Name" />
+
+      <!-- Program Details -->
+      <Text layoutX="208.0" layoutY="238.0" text="Program ID:">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="txtPayment" layoutX="126.0" layoutY="312.0" prefHeight="30.0" prefWidth="114.0" />
-      <TextField fx:id="txtDuration" layoutX="385.0" layoutY="312.0" prefHeight="30.0" prefWidth="114.0" />
-      <TextField fx:id="txtYrs" layoutX="588.0" layoutY="312.0" prefHeight="30.0" prefWidth="90.0" />
-      <Text layoutX="32.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment">
+      <ComboBox fx:id="cmbProgramId" layoutX="328.0" layoutY="222.0" onAction="#cmbProgramIdSearchOnAction" prefHeight="40.0" prefWidth="150.0" />
+
+      <Text layoutX="611.0" layoutY="238.0" text="Program Name:">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="526.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yrs">
+      <TextField fx:id="txtProgram" layoutX="752.0" layoutY="212.0" prefHeight="40.0" prefWidth="246.0" promptText="Enter Program Name" />
+
+      <!-- Payment Details -->
+      <Text layoutX="231.0" layoutY="321.0" text="Payment:">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font>
       </Text>
-      <Text layoutX="304.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration">
+      <TextField fx:id="txtPayment" layoutX="330.0" layoutY="295.0" prefHeight="40.0" prefWidth="150.0" promptText="Enter Payment" />
+
+      <Text layoutX="519.0" layoutY="313.0" text="Duration:">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font>
       </Text>
-      <ComboBox fx:id="cmbStudentId" layoutX="144.0" layoutY="177.0" onAction="#cmbIdSearchOnAction" prefHeight="30.0" prefWidth="143.0" />
-      <ComboBox fx:id="cmbProgramId" layoutX="144.0" layoutY="229.0" onAction="#cmbItemIdSearchOnAction" prefHeight="30.0" prefWidth="143.0" />
-      <Button layoutX="581.0" layoutY="385.0" mnemonicParsing="false" onAction="#btnAddToProgramOnAction" prefHeight="30.0" prefWidth="105.0" style="-fx-background-color: green;" text="Add to Program" textFill="#eee7e7" />
-      <TableView fx:id="tblRejisterDetails" layoutX="23.0" layoutY="439.0" prefHeight="265.0" prefWidth="696.0">
-        <columns>
-          <TableColumn fx:id="colProgramID" prefWidth="90.0" text="Program ID" />
-          <TableColumn fx:id="colProgramName" prefWidth="162.0" text="Program Name" />
-            <TableColumn fx:id="colPayment" prefWidth="113.0" text="Payment" />
-            <TableColumn fx:id="colDuration" prefWidth="131.0" text="Duration" />
-            <TableColumn fx:id="colYears" prefWidth="196.0" text="Years" />
-        </columns>
+      <TextField fx:id="txtDuration" layoutX="614.0" layoutY="288.0" prefHeight="40.0" prefWidth="122.0" promptText="Enter Duration" />
+
+      <Text layoutX="884.0" layoutY="313.0" text="Years:">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtYears" layoutX="942.0" layoutY="287.0" prefHeight="40.0" prefWidth="121.0" promptText="Enter Years" />
+
+      <!-- Buttons -->
+      <Button layoutX="1294.0" layoutY="287.0" onAction="#btnAddToProgramOnAction" prefHeight="40.0" prefWidth="150.0" styleClass="btn" stylesheets="@crudDesign.css" text="Add to Program" />
+      <Button layoutX="1294.0" layoutY="563.0" onAction="#btnRegisterOnAction" prefHeight="40.0" prefWidth="150.0" styleClass="btn" stylesheets="@crudDesign.css" text="Register" />
+
+      <!-- Table -->
+      <TableView fx:id="tblRegisterDetails" layoutX="82.0" layoutY="350.0" prefHeight="190.0" prefWidth="1378.0">
+         <columns>
+            <TableColumn fx:id="colEnrollmentID" prefWidth="120.0" text="Enrollment ID" />
+            <TableColumn fx:id="colProgramID" prefWidth="203.20001220703125" text="Program ID" />
+            <TableColumn fx:id="colProgramName" prefWidth="356.7999572753906" text="Program Name" />
+            <TableColumn fx:id="colPayment" prefWidth="290.39996337890625" text="Payment" />
+            <TableColumn fx:id="colDuration" prefWidth="254.4000244140625" text="Duration" />
+            <TableColumn fx:id="colYears" prefWidth="214.4000244140625" text="Years" />
+         </columns>
       </TableView>
-      <Text layoutX="23.0" layoutY="754.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total">
+
+      <!-- Total Section -->
+      <Text layoutX="50.0" layoutY="604.0" text="Total">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="txtTotal" layoutX="99.0" layoutY="732.0" prefHeight="30.0" prefWidth="149.0" />
-      <Button layoutX="538.0" layoutY="732.0" mnemonicParsing="false" onAction="#btnRejisterOnAction" prefHeight="30.0" prefWidth="143.0" style="-fx-background-color: green;" text="Rejister" textFill="#fcf7f7" />
-      <Text layoutX="25.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enrollment Id">
+      <TextField fx:id="txtTotal" layoutX="131.0" layoutY="577.0" prefHeight="40.0" prefWidth="200.0" promptText="Total Amount" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1e5fb8" height="70.0" layoutX="-2.0" layoutY="-7.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1555.0" />
+      <Text fill="WHITE" layoutX="604.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student Register">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="36.0" />
          </font>
       </Text>
-      <TextField fx:id="txtEnrollmentId" layoutX="117.0" layoutY="96.0" prefHeight="30.0" prefWidth="143.0" />
-      <Text layoutX="300.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Text>
-      <TextField fx:id="txtDate" layoutX="370.0" layoutY="96.0" prefHeight="30.0" prefWidth="143.0" />
-      <Button layoutX="610.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnHomeOnAction" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: #2fd64e;" text="Home" textFill="#140e0e">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

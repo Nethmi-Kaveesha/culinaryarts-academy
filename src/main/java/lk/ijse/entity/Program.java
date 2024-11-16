@@ -4,29 +4,31 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Getter
 @Setter
-@Entity // Mark as a JPA entity
-@Table(name = "program") // Specify table name
+@Entity
+@Table(name = "program")
 public class Program {
 
-    @Id // Mark this field as the primary key
-    @Column(name = "program_code") // Specify column name in the database
+    @Id
+    @Column(name = "program_code")
     private String programCode;
 
-    @Column(name = "program_name") // Specify column name
+    @Column(name = "program_name")
     private String programName;
 
-    @Column(name = "program_fee") // Specify column name
-    private String programFee; // Consider using BigDecimal if you plan to do arithmetic on fee
+    @Column(name = "program_fee")
+    private String programFee; // Using BigDecimal for financial values
 
-    @Column(name = "program_duration") // Specify column name
+    @Column(name = "program_duration")
     private String programDuration;
-//
-//    @OneToMany(mappedBy = "program", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private List<Enrollment> enrollmentList;
+
+    // One-to-many relationship with Enrollment
+    @OneToMany(mappedBy = "program", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Enrollment> enrollmentList;
 
     // Default constructor required by JPA
     public Program() {
@@ -46,7 +48,7 @@ public class Program {
         return "Program{" +
                 "programCode='" + programCode + '\'' +
                 ", programName='" + programName + '\'' +
-                ", programFee='" + programFee + '\'' +
+                ", programFee=" + programFee +
                 ", programDuration='" + programDuration + '\'' +
                 '}';
     }

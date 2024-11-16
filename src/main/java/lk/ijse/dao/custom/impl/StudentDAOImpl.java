@@ -40,9 +40,14 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public boolean search(Student student) {
-        // Implement the search logic if needed
-        return false;
+    public Student search(String studentId) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Query query = session.createQuery("from Student where id =?1");
+        query.setParameter(1, studentId);
+        Student student = (Student) query.uniqueResult();
+        transaction.commit();
+        return student;
     }
 
     @Override
@@ -55,4 +60,40 @@ public class StudentDAOImpl implements StudentDAO {
         session.close();
         return list;
     }
+
+    @Override
+    public Student findByName(String studentName) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        Student student = null;
+
+        try {
+            Query<Student> query = session.createQuery("from Student where name = :studentName", Student.class);
+            query.setParameter("studentName", studentName);
+            student = query.uniqueResult();
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+
+        return student;
+    }
+
+    @Override
+    public Student find(String studentId, Session session) {
+        try {
+            // Use Hibernate session to fetch the Student entity by studentId
+            return session.createQuery("FROM Student WHERE id = :studentId", Student.class)
+                    .setParameter("studentId", studentId)
+                    .uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null; // Return null in case of any exception
+        }
+    }
+
+
 }

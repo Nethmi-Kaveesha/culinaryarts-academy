@@ -29,8 +29,9 @@ public class Regex {
                 filled = "^[A-Za-z0-9]{5,10}$"; // Alphanumeric, 5-10 characters
                 break;
             case ProgramDuration: // For program_duration
-                filled = "^[1-9][0-9]* (days|weeks|months|years)$"; // Format like "12 months"
+                filled = "^[1-9]\\d* (days|weeks|months|years)$"; // Format like "12 months"
                 break;
+
             case ProgramFee: // For program_fee
                 filled = "^[0-9]+(\\.[0-9]{1,2})?$"; // Numeric with up to 2 decimal places
                 break;

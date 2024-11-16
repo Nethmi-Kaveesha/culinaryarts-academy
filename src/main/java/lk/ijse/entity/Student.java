@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -24,9 +25,8 @@ public class Student implements Serializable {
     private String phone;
     private String address;
 
-//   @OneToMany(mappedBy = "student")
-//    private List<Enrollment> enrollmentList;
-
+    @OneToMany(mappedBy = "student")
+    private List<Enrollment> enrollments;
 
     public Student() {}
 
