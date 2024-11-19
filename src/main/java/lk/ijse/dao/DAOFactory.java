@@ -1,7 +1,6 @@
 package lk.ijse.dao;
 
-//import lk.ijse.dao.custom.impl.EnrollmentDetailDAOImpl;
-import lk.ijse.dao.custom.EnrollmentDetailDAO;
+
 import lk.ijse.dao.custom.impl.*;
 
 public class DAOFactory {

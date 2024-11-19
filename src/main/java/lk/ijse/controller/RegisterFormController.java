@@ -186,6 +186,9 @@ public class RegisterFormController {
         String programId = cmbProgramId.getSelectionModel().getSelectedItem();
         Program programDto = programBO.search(programId);
         txtProgram.setText(programDto.getProgramName());
+        txtPayment.setText(programDto.getProgramDuration());
+        txtDuration.setText(programDto.getProgramFee());
+
 
     }
 
