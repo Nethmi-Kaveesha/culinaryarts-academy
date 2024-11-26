@@ -7,12 +7,14 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 
 @Entity
 @Table(name = "user") // Specify the table name in the database
-public class User {
+public class User implements Serializable {
     // Getters and Setters
     @Id
     @Column(name = "user_id", unique = true, nullable = false) // Make userId unique and non-nullable

@@ -12,12 +12,14 @@ public interface UserBO extends SuperBO {
     boolean delete(UserDto userDto);
     boolean search(UserDto userDto); // Changed to return UserDto based on userId
 
-    public UserDto checkData(String userName, String pw) throws SQLException;
-
-    public UserDto  checkPasswordCredential(String tempUsername) throws SQLException;
 
 
     List<UserDto> getAllUsers(); // Updated method name for clarity
+
+    UserDto findUserByUsername(String username);
+
+
+    UserDto findPositionByUserName(String username);
 
     String generateUserId();
 }

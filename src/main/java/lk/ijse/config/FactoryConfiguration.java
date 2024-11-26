@@ -1,24 +1,29 @@
 package lk.ijse.config;
 
+//use Singleton pattern
 import lk.ijse.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class FactoryConfiguration {
-    private static FactoryConfiguration factoryConfiguration;
-    private SessionFactory sessionFactory;
 
-    private FactoryConfiguration(){
-        Configuration configuration=new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(User.class).addAnnotatedClass(Program.class).addAnnotatedClass(Enrollment.class).addAnnotatedClass(EnrollmentDetail.class);
-        sessionFactory=configuration.buildSessionFactory();
+    private static FactoryConfiguration factoryConfiguration;
+    private static SessionFactory sessionFactory;
+
+    private FactoryConfiguration() {
+        Configuration configuration = new Configuration()
+                .configure()
+                .addAnnotatedClass(Student.class)
+                .addAnnotatedClass(Program.class)
+                .addAnnotatedClass(Enrollment.class)
+                .addAnnotatedClass(EnrollmentDetail.class)
+                .addAnnotatedClass(User.class);
+        sessionFactory = configuration.buildSessionFactory();
     }
 
     public static FactoryConfiguration getInstance() {
-        if (factoryConfiguration == null) {
-            factoryConfiguration = new FactoryConfiguration();
-        }
-        return factoryConfiguration;
+        return (factoryConfiguration == null) ? factoryConfiguration = new FactoryConfiguration() : factoryConfiguration;
     }
 
     public Session getSession() {

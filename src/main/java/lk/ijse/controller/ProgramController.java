@@ -67,7 +67,7 @@ public class ProgramController {
         setCellValueFactory();
         loadAllPrograms();
 
-        program_name.getItems().addAll("Basic Culinary Skills", "Advanced Culinary Arts","Pastry and Baking Fundamentals","Professional Chef Training","International Cuisine","Vegetarian and Vegan Cooking","Food Safety and Hygiene","Culinary Management");
+        program_name.getItems().addAll("Professional Cooking", "Baking & Pastry Arts","International Cuisine","Culinary Management","Food Safety and Hygiene");
 
         program_table.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {

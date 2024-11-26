@@ -7,19 +7,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface UserDAO extends CrudDAO<User> {
-    boolean search(User user); // Search for a user based on the User object
 
-    User getUserByUsernameAndPassword(String username, String password);
 
-    User getUserByUsername(String username);
+    List<User> getAll();
 
-    List<User> getAll(); // Retrieve all users
+    //User authenticate(String username, String password);
 
-    User authenticate(String username, String password); // Validate user credentials
+    User findByUsername(String username);
 
-    User findByUsername(String username); // Find a user by username
-
-    public User checkCredentials(String userName, String pw) throws SQLException;
-    public User checkPassword(String tempUsername) throws SQLException;
-
+    boolean search(User user);
 }

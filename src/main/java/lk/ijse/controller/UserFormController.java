@@ -13,6 +13,7 @@ import lk.ijse.dto.UserDto;
 import lk.ijse.util.Regex;
 import lk.ijse.util.TextFields;
 import lk.ijse.view.tdm.UserTm;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.List;
 
@@ -119,34 +120,67 @@ public class UserFormController {
         user_email.setText(userTm.getEmail());
     }
 
+//    @FXML
+//    void btnSaveOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
+//        String password = txtPassword.getText();
+//        String position = cmbPosition.getValue();
+//        String username = txtUserName.getText();
+//
+//        // Hash the password
+//        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+//
+//        userDTO UserDTO = new userDTO(0, username, hashedPassword, position);
+//
+//        if (UserBO.save(UserDTO)) {
+//            showAlert("Success", "User saved successfully");
+//            loadUsers();
+//        } else {
+//            showAlert("Error", "Failed to save user");
+//        }
+//    }
+
     public void btnAddOnAction(ActionEvent actionEvent) {
-        // Validate each field using Regex
+        // Step 1: Validate fields
         boolean isUserIDValid = Regex.isTextFieldValid(TextFields.UserID, user_id.getText());
         boolean isUserNameValid = Regex.isTextFieldValid(TextFields.UserName, user_name.getText());
         boolean isUserEmailValid = Regex.isTextFieldValid(TextFields.UserEmail, user_email.getText());
         boolean isUserPasswordValid = Regex.isTextFieldValid(TextFields.UserPassword, user_password.getText());
 
-        // Check if all fields are valid
+        // Step 2: Check if all validations passed
         if (isUserIDValid && isUserNameValid && isUserEmailValid && isUserPasswordValid) {
-            boolean isSaved = userBO.save(new UserDto(
-                    user_id.getText(),
-                    user_name.getText(),
-                    user_password.getText(),
-                    user_role.getValue(),
-                    user_email.getText() // Added email here
-            ));
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "User Saved").show();
-                loadAllUsers(); // Refresh the table
-                clearFields();
-            } else {
-                new Alert(Alert.AlertType.ERROR, "User Not Saved").show();
+            try {
+                // Step 3: Hash the password
+                String hashedPassword = BCrypt.hashpw(user_password.getText(), BCrypt.gensalt());
+
+                // Step 4: Create a UserDto object
+                UserDto userDto = new UserDto(
+                        user_id.getText(),
+                        user_name.getText(),
+                        hashedPassword,
+                        user_role.getValue(),
+                        user_email.getText()
+                );
+
+                // Step 5: Save the user using UserBO
+                boolean isSaved = userBO.save(userDto);
+
+                // Step 6: Display success or error message
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "User added successfully!").show();
+                    loadAllUsers();  // Refresh the user table
+                    clearFields();   // Clear input fields
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Failed to add user. Please try again.").show();
+                }
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, "An error occurred: " + e.getMessage()).show();
             }
         } else {
-            // Show an error alert for invalid fields
-            new Alert(Alert.AlertType.ERROR, "Please check your input. All fields must be valid.").show();
+            // Show error if any field is invalid
+            new Alert(Alert.AlertType.ERROR, "Please ensure all fields are valid.").show();
         }
     }
+
 
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {

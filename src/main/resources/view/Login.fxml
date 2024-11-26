@@ -1,65 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootNode" prefHeight="798.0" prefWidth="964.0" style="-fx-background-color: #988F88;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.LoginFormController">
-   <children>
-      <AnchorPane layoutX="479.0" layoutY="-6.0" prefHeight="806.0" prefWidth="458.0" style="-fx-border-color: darkblue; -fx-background-color: #30393E;">
-         <children>
-            <AnchorPane layoutX="473.0" layoutY="2.0" prefHeight="800.0" prefWidth="2.0" style="-fx-background-color: #DCFAEB;" />
-            <ImageView fitHeight="445.0" fitWidth="430.0" layoutX="26.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+<AnchorPane fx:id="rootNode" prefHeight="706.0" prefWidth="506.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.loginFormController">
+
+   <!-- Username TextField -->
+   <TextField fx:id="txtUserName" layoutX="63.0" layoutY="354.0" prefHeight="45.0" prefWidth="382.0" promptText="Username">
+      <AnchorPane.leftAnchor>63.0</AnchorPane.leftAnchor>
+      <AnchorPane.topAnchor>354.0</AnchorPane.topAnchor>
+   </TextField>
+
+   <!-- Password Field (invisible initially) -->
+   <PasswordField fx:id="txtPassword" layoutX="63.0" layoutY="474.0" prefHeight="46.0" prefWidth="382.0" promptText="Password">
+      <AnchorPane.leftAnchor>63.0</AnchorPane.leftAnchor>
+      <AnchorPane.topAnchor>474.0</AnchorPane.topAnchor>
+   </PasswordField>
+
+   <!-- Visible Password TextField (hidden initially, shows password when toggled) -->
+   <TextField fx:id="txtPasswordVisible" layoutX="63.0" layoutY="474.0" prefHeight="46.0" prefWidth="382.0" visible="false">
+      <AnchorPane.leftAnchor>63.0</AnchorPane.leftAnchor>
+      <AnchorPane.topAnchor>474.0</AnchorPane.topAnchor>
+   </TextField>
+
+   <!-- Show/Hide Password Button (eye icon) -->
+   <Button fx:id="btnTogglePassword" layoutX="69.0" layoutY="542.0" onAction="#togglePasswordVisibility" prefHeight="30.0" prefWidth="30.0" style="-fx-border-color: grey; -fx-background-color: white;" text="👁️" />
+
+   <!-- Show Password Label with Icon -->
+   <Label layoutX="126.0" layoutY="547.0" textFill="GREY">
+      <graphic>
+         <HBox spacing="5.0">
+            <!-- Icon Image -->
+            <ImageView fitHeight="16.0" fitWidth="16.0">
                <image>
-                  <Image url="@../img/istockphoto-146902493-612x612.jpg" />
+                  <Image url="@../img/show-icon.png" />
                </image>
             </ImageView>
-            <Text fill="#988f88" layoutX="88.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cooking &amp; Artisty">
+            <!-- Text -->
+            <Label text="Show Me">
                <font>
-                  <Font name="System Bold Italic" size="36.0" />
+                  <Font size="14.0" />
                </font>
-            </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#988f88" height="17.0" layoutY="529.0" stroke="#988f88" strokeType="INSIDE" width="470.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#988f88" height="17.0" layoutX="-3.0" layoutY="225.0" stroke="#988f88" strokeType="INSIDE" width="470.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#988f88" height="321.0" layoutY="225.0" stroke="#988f88" strokeType="INSIDE" width="30.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#988f88" height="321.0" layoutX="441.0" layoutY="225.0" stroke="#988f88" strokeType="INSIDE" width="30.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#988f88" height="17.0" layoutX="-9.0" layoutY="753.0" stroke="#988f88" strokeType="INSIDE" width="487.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#988f88" height="17.0" layoutX="-9.0" layoutY="725.0" stroke="#988f88" strokeType="INSIDE" width="487.0" />
-         </children>
-      </AnchorPane>
-      <Pane layoutX="-2.0" prefHeight="798.0" prefWidth="480.0" style="-fx-background-color: #ffffff;">
-         <children>
-            <TextField fx:id="txtUsername" layoutX="75.0" layoutY="231.0" onAction="#txtUsernameOnAction" onKeyReleased="#txtUsernameOnKeyReleased" prefHeight="37.0" prefWidth="299.0" promptText="Username" style="-fx-background-radius: 10;" />
-            <Button layoutX="75.0" layoutY="473.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="37.0" prefWidth="299.0" style="-fx-background-color: #222f3e; -fx-background-radius: 10;" text="Log In" textFill="#f5efeff7">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
+            </Label>
+         </HBox>
+      </graphic>
+   </Label>
 
-            <Text fx:id="txtForgotPassword" fill="#000946" layoutX="262.0" layoutY="390.0" onMouseClicked="#txtForgotPasswordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password?" />
-            <Text layoutX="104.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Text>
-            <Hyperlink layoutX="294.0" layoutY="533.0" onAction="#hyperlinkSignUpOnAction" text="Sign Up" textFill="#010e61">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Hyperlink>
-            <PasswordField fx:id="txtPassword" layoutX="75.0" layoutY="330.0" onAction="#txtPasswordOnAction" onKeyReleased="#txtPasswordOnKeyReleased" prefHeight="37.0" prefWidth="299.0" promptText="Password" style="-fx-background-radius: 10;" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#30393e" height="17.0" layoutY="37.0" stroke="#988f88" strokeType="INSIDE" width="480.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#30393e" height="17.0" layoutY="64.0" stroke="#988f88" strokeType="INSIDE" width="480.0" />
+   <!-- Login Button -->
+   <Button fx:id="btnLogin" layoutX="69.0" layoutY="604.0" onAction="#btnLoginOnAction" prefHeight="46.0" prefWidth="382.0" style="-fx-background-color: #1e5fb8;" text="Sign In" textFill="WHITE">
+      <AnchorPane.leftAnchor>69.0</AnchorPane.leftAnchor>
+      <AnchorPane.topAnchor>604.0</AnchorPane.topAnchor>
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Button>
 
-         </children>
-      </Pane>
-   </children>
+   <!-- Logo Image -->
+   <ImageView fitHeight="150.0" fitWidth="466.0" layoutX="89.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../img/cropped-cropped-lOGO-1.png" />
+      </image>
+   </ImageView>
+
+   <!-- Sign In Prompt -->
+   <Label layoutX="155.0" layoutY="253.0" text="Sign in to your account">
+      <font>
+         <Font name="System Bold" size="18.0" />
+      </font>
+   </Label>
+
+   <!-- Username Label -->
+   <Label layoutX="64.0" layoutY="313.0" text="Name:" textFill="GREY">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+
+   <!-- Password Label -->
+   <Label layoutX="69.0" layoutY="437.0" text="Password:" textFill="GREY">
+      <font>
+         <Font size="14.0" />
+      </font>
+   </Label>
+
 </AnchorPane>

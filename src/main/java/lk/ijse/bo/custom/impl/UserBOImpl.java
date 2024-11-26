@@ -35,16 +35,6 @@ public class UserBOImpl implements UserBO {
         return false;
     }
 
-    @Override
-    public UserDto checkData(String userName,String pw) throws SQLException {
-        User user = userDAO.checkCredentials(userName,pw);
-        return new UserDto(user.getUserId(),user.getUsername(),user.getPassword(),user.getRole(),user.getEmail());
-    }
-    @Override
-    public UserDto  checkPasswordCredential(String tempUsername) throws SQLException {
-        User user = userDAO.checkPassword(tempUsername);
-        return new UserDto(user.getUserId(),user.getUsername(),user.getPassword(),user.getRole(),user.getEmail());
-    }
 
     @Override
     public List<UserDto> getAllUsers() {
@@ -57,17 +47,48 @@ public class UserBOImpl implements UserBO {
     }
 
     @Override
+    public UserDto findUserByUsername(String username) {
+        User user = userDAO.findByUsername(username);  // Assuming the DAO method is implemented to find user by username
+        if (user != null) {
+            return new UserDto(user.getUserId(), user.getUsername(), user.getPassword(), user.getRole(), user.getEmail());
+        }
+        return null;  // Return null if user not found
+    }
+
+
+    @Override
+    public UserDto findPositionByUserName(String username) {
+        User user = userDAO.findByUsername(username);  // Assuming the DAO method is implemented to find user by username
+        if (user != null) {
+            return new UserDto(user.getUserId(), user.getUsername(), user.getPassword(), user.getRole(), user.getEmail());
+        }
+        return null;  // Return null if user not found
+    }
+
+
+    @Override
     public String generateUserId() {
         List<UserDto> userList = getAllUsers();
         int maxId = 0;
+        String prefix = "user_";
 
+        // Loop through all users and extract the numeric part of the userId
         for (UserDto user : userList) {
-            int currentId = Integer.parseInt(user.getUserId());
-            if (currentId > maxId) {
-                maxId = currentId;
+            try {
+                // Extract the numeric part after the prefix (e.g., "user_001" -> 1)
+                String numericPart = user.getUserId().replace(prefix, "");
+                int currentId = Integer.parseInt(numericPart);
+                if (currentId > maxId) {
+                    maxId = currentId;
+                }
+            } catch (NumberFormatException e) {
+                // Handle invalid userId format if necessary
+                System.out.println("Invalid userId format for user: " + user.getUserId());
             }
         }
 
-        return String.valueOf(maxId + 1); // Generate next ID
+        // Generate the next userId with the prefix
+        return prefix + String.format("%03d", maxId + 1); // This will pad with leading zeros
     }
+
 }
