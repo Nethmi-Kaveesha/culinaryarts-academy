@@ -20,7 +20,7 @@
                     <left>
                         <AnchorPane prefHeight="740.0" prefWidth="555.0" BorderPane.alignment="CENTER">
                             <children>
-                                <AnchorPane layoutX="224.0" layoutY="147.0" prefHeight="470.0" prefWidth="286.0" styleClass="border" stylesheets="@crudDesign.css">
+                                <AnchorPane layoutX="134.0" layoutY="143.0" prefHeight="470.0" prefWidth="286.0" styleClass="border" stylesheets="@crudDesign.css">
                                     <children>
                                         <!-- Form Fields -->
                                         <Label layoutX="14.0" layoutY="31.0" text="Program ID">
@@ -59,7 +59,7 @@
                             <children>
                                 <AnchorPane layoutX="63.0" layoutY="20.0" prefHeight="662.0" prefWidth="786.0" stylesheets="@crudDesign.css">
                                     <children>
-                                        <TableView fx:id="program_table" layoutX="36.0" layoutY="116.0" prefHeight="477.0" prefWidth="714.0">
+                                        <TableView fx:id="program_table" layoutX="-111.0" layoutY="122.0" prefHeight="477.0" prefWidth="714.0">
                                             <columns>
                                                 <TableColumn fx:id="programId_col" prefWidth="170.39993286132812" text="Program ID" />
                                                 <TableColumn fx:id="programName_col" prefWidth="201.5999755859375" text="Program Name" />

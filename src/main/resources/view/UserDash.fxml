@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootNode" prefHeight="760.0" prefWidth="1530.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashboardFormController">
+<AnchorPane fx:id="rootNode" prefHeight="760.0" prefWidth="1530.0" style="-fx-background-color: #121212;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.UserDashController">
     <children>
         <!-- Main Dashboard Pane with Gradient Background -->
         <AnchorPane prefHeight="810.0" prefWidth="1508.0" style="-fx-background: linear-gradient(to bottom right, #30303E, #121212);">
@@ -19,34 +19,26 @@
                     <children>
 
                         <!-- Navigation Buttons with Hover Effects -->
-                        <Button fx:id="btnHome1" layoutX="25.0" layoutY="215.0" mnemonicParsing="false" onAction="#btnHomeOnAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: #4b4b56; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-border-color: white;" text="Home">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Button>
-                        <Button fx:id="btnCustomer" layoutX="28.0" layoutY="441.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: #4b4b56; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-border-color: grey;" text="Student Form">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Button>
-                        <Button fx:id="btnItem" layoutX="28.0" layoutY="515.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: #4b4b56; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-border-color: orange;" text="Program Form">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Button>
-                        <Button fx:id="btnPlace" layoutX="25.0" layoutY="364.0" mnemonicParsing="false" onAction="#btnPlaceOnAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: #4b4b56; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-border-color: green;" text="User Form">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Button>
-                        <Button fx:id="btnAboutUs" layoutX="25.0" layoutY="288.0" mnemonicParsing="false" onAction="#btnAboutOnAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: #4b4b56; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-border-color: blue;" text="About Us">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Button>
-                        <Button fx:id="btnContact" layoutX="28.0" layoutY="662.0" mnemonicParsing="false" onAction="#btnContactOnAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: #4b4b56; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-border-color: red;" text="Contact Us">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Button>
-                        <Button fx:id="btnRejister" layoutX="28.0" layoutY="587.0" mnemonicParsing="false" onAction="#btnRejisterOnAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: #4b4b56; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-border-color: purple;" text="Rejister">
-                     <font>
-                        <Font size="14.0" />
-                     </font></Button>
+                        <Button fx:id="btnHome1" layoutX="25.0" layoutY="238.0" mnemonicParsing="false" onAction="#btnHomeOnAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: #4b4b56; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-border-color: white;" text="Home">
+                            <font>
+                                <Font size="14.0" />
+                            </font></Button>
+                        <Button fx:id="btnItem" layoutX="25.0" layoutY="465.0" mnemonicParsing="false" onAction="#btnItemOnAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: #4b4b56; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-border-color: orange;" text="Program Form">
+                            <font>
+                                <Font size="14.0" />
+                            </font></Button>
+                        <Button fx:id="btnPlace" layoutX="28.0" layoutY="387.0" mnemonicParsing="false" onAction="#btnPlaceOnAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: #4b4b56; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-border-color: green;" text="User Form">
+                            <font>
+                                <Font size="14.0" />
+                            </font></Button>
+                        <Button fx:id="btnAboutUs" layoutX="25.0" layoutY="310.0" mnemonicParsing="false" onAction="#btnAboutOnAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: #4b4b56; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-border-color: blue;" text="About Us">
+                            <font>
+                                <Font size="14.0" />
+                            </font></Button>
+                        <Button fx:id="btnContact" layoutX="25.0" layoutY="545.0" mnemonicParsing="false" onAction="#btnContactOnAction" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: #4b4b56; -fx-text-fill: white; -fx-border-radius: 5px; -fx-font-weight: bold; -fx-border-color: red;" text="Contact Us">
+                            <font>
+                                <Font size="14.0" />
+                            </font></Button>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="116.0" stroke="TRANSPARENT" strokeType="INSIDE" width="253.0" />
                         <!-- Logo -->
                         <ImageView fitHeight="81.0" fitWidth="202.0" layoutX="25.0" layoutY="18.0">
@@ -91,12 +83,11 @@
                 <Label layoutX="600.0" layoutY="50.0" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: white;" text="Welcome to Culinary Academy" />
 
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="116.0" layoutX="244.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1304.0" />
-            <Label layoutX="341.0" layoutY="41.0" text="Welcome to The Culinary Academy – Where Passion Meets Excellence!">
-               <font>
-                  <Font name="Algerian" size="27.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnLogout" layoutX="1380.0" layoutY="39.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="38.0" prefWidth="122.0" styleClass="btn" stylesheets="@crudDesign.css" text="&lt;&lt; Logout" />
+                <Label layoutX="269.0" layoutY="38.0" text="Welcome to The Culinary Academy – Where Passion Meets Excellence!">
+                    <font>
+                        <Font name="Algerian" size="34.0" />
+                    </font>
+                </Label>
 
             </children>
         </AnchorPane>

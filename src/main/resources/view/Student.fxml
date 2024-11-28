@@ -23,7 +23,7 @@
                <left>
                   <AnchorPane prefHeight="700.0" prefWidth="738.0" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="278.0" layoutY="120.0" prefHeight="508.0" prefWidth="318.0" styleClass="border" stylesheets="@crudDesign.css">
+                        <AnchorPane layoutX="165.0" layoutY="123.0" prefHeight="534.0" prefWidth="278.0" styleClass="border" stylesheets="@crudDesign.css">
                            <children>
                               <Label layoutX="14.0" layoutY="14.0" text="Student ID">
                                  <font>
@@ -92,7 +92,7 @@
                      <children>
                         <AnchorPane layoutX="-35.0" layoutY="3.0" prefHeight="707.0" prefWidth="1070.0" stylesheets="@crudDesign.css">
                            <children>
-                              <TableView fx:id="stu_table" layoutX="-73.0" layoutY="118.0" prefHeight="514.0" prefWidth="711.0">
+                              <TableView fx:id="stu_table" layoutX="-177.0" layoutY="117.0" prefHeight="538.0" prefWidth="711.0">
                                  <columns>
                                     <TableColumn fx:id="stuId_col" prefWidth="100.0" text="Student ID" />
                                     <TableColumn fx:id="stuName_col" prefWidth="100.0" text="Full Name" />

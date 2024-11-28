@@ -11,13 +11,12 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 
-public class DashboardFormController {
+public class UserDashController {
 
     public Button btnRejister;
     public Button btnAboutUs;
     public Button btnContact;
     public Button btnHome1;
-    public Button btnLogout;
     @FXML
     private Button btnCustomer;
 
@@ -37,7 +36,6 @@ public class DashboardFormController {
     private Text userIdLabel; // Label to display the user ID
 
     private String userId;
-
     @FXML
     void btnCustomerOnAction(ActionEvent event) throws IOException {
         loadStudentForm();
@@ -57,7 +55,7 @@ public class DashboardFormController {
     }
 
     private void loadProgramForm() throws IOException {
-        AnchorPane programForm = FXMLLoader.load(getClass().getResource("/view/ProgramForm.fxml"));
+        AnchorPane programForm = FXMLLoader.load(getClass().getResource("/view/show-programs.fxml"));
 
         contentArea.getChildren().clear();
         contentArea.getChildren().add(programForm);
@@ -108,30 +106,6 @@ public class DashboardFormController {
         contentArea.getChildren().add(placeOrderForm);
     }
 
-    private void loadLoginForm() {
-        try {
-            // Load the Login.fxml file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Login.fxml"));
-            AnchorPane loginForm = loader.load();
-
-            // Create a new Stage for the login form
-            Stage loginStage = new Stage();
-            loginStage.setTitle("Login");
-            loginStage.setScene(new Scene(loginForm));
-            loginStage.setResizable(false); // Optional: Prevent resizing of the login window
-
-            // Close the current stage (dashboard stage)
-            Stage currentStage = (Stage) rootNode.getScene().getWindow();
-            currentStage.close();
-
-            // Show the login stage
-            loginStage.show();
-        } catch (IOException e) {
-            e.printStackTrace(); // Handle the exception if loading the FXML fails
-        }
-    }
-
-
 
     public void btnRejisterOnAction(ActionEvent actionEvent) throws IOException {
         loadRejisterForm();
@@ -147,9 +121,5 @@ public class DashboardFormController {
 
     public void btnHomeOnAction(ActionEvent event) throws IOException {
         loadHomeForm();
-    }
-
-    public void btnLogoutOnAction(ActionEvent event) {
-        loadLoginForm();
     }
 }

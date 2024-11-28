@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="684.0" prefWidth="1550.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="699.0" prefWidth="1299.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
 
     <!-- Header Section -->
-    <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1550.0" style="-fx-background-color: #1e5fb8; -fx-padding: 20;">
+    <HBox alignment="CENTER" prefHeight="150.0" prefWidth="1299.0" style="-fx-background-color: #1e5fb8; -fx-padding: 20;">
         <Label style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #ecf0f1;" text="Welcome to the Dashboard" />
     </HBox>
 
     <!-- Main Content -->
-    <VBox layoutX="202.0" layoutY="150.0" spacing="30" style="-fx-padding: 20;">
+    <VBox layoutX="95.0" layoutY="150.0" spacing="30" style="-fx-padding: 20;">
 
         <!-- Stats Section -->
         <HBox alignment="CENTER" spacing="20">
@@ -31,16 +34,25 @@
             </VBox>
 
             <!-- Card 3 -->
-            <VBox alignment="CENTER" spacing="10" style="-fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10; -fx-min-width: 350; -fx-min-height: 150;" styleClass="btn" stylesheets="@crudDesign.css">
+            <VBox alignment="CENTER" minWidth="202.0" prefHeight="150.0" prefWidth="202.0" spacing="10" style="-fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10; -fx-min-width: 350; -fx-min-height: 150;" styleClass="btn" stylesheets="@crudDesign.css">
                 <Label style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: white;" text="Active Users" />
                 <Label style="-fx-font-size: 40; -fx-font-weight: bold; -fx-text-fill: white;" text="120" />
             </VBox>
         </HBox>
+         <Label style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Activity Overview" />
 
         <!-- Activity Chart -->
         <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #ecf0f1; -fx-padding: 20; -fx-border-radius: 10; -fx-background-radius: 10; -fx-min-height: 300;" styleClass="border" stylesheets="@crudDesign.css">
-            <Label style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Activity Overview" />
-            <Label style="-fx-font-size: 16; -fx-text-fill: #7f8c8d;" text="(Add a chart or graph here)" />
+         <children>
+            <BarChart prefHeight="198.0" prefWidth="1050.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </children>
         </VBox>
     </VBox>
 </AnchorPane>

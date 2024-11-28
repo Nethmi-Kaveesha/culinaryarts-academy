@@ -6,7 +6,6 @@ import lk.ijse.dao.custom.impl.UserDAOImpl;
 import lk.ijse.dto.UserDto;
 import lk.ijse.entity.User;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 

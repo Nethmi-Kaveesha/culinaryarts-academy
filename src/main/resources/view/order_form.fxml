@@ -73,26 +73,26 @@
       </Text>
       <TextField fx:id="txtDuration" layoutX="614.0" layoutY="288.0" prefHeight="40.0" prefWidth="122.0" promptText="Enter Duration" />
 
-      <Text layoutX="884.0" layoutY="313.0" text="Years:">
+      <Text layoutX="798.0" layoutY="320.0" text="Years:">
          <font>
             <Font size="16.0" />
          </font>
       </Text>
-      <TextField fx:id="txtYears" layoutX="942.0" layoutY="287.0" prefHeight="40.0" prefWidth="121.0" promptText="Enter Years" />
+      <TextField fx:id="txtYears" layoutX="875.0" layoutY="284.0" prefHeight="40.0" prefWidth="121.0" promptText="Enter Years" />
 
       <!-- Buttons -->
-      <Button layoutX="1294.0" layoutY="287.0" onAction="#btnAddToProgramOnAction" prefHeight="40.0" prefWidth="150.0" styleClass="btn" stylesheets="@crudDesign.css" text="Add to Program" />
-      <Button layoutX="1294.0" layoutY="563.0" onAction="#btnRegisterOnAction" prefHeight="40.0" prefWidth="150.0" styleClass="btn" stylesheets="@crudDesign.css" text="Register" />
+      <Button layoutX="1052.0" layoutY="295.0" onAction="#btnAddToProgramOnAction" prefHeight="40.0" prefWidth="150.0" styleClass="btn" stylesheets="@crudDesign.css" text="Add to Program" />
+      <Button layoutX="1052.0" layoutY="557.0" onAction="#btnRegisterOnAction" prefHeight="40.0" prefWidth="150.0" styleClass="btn" stylesheets="@crudDesign.css" text="Register" />
 
       <!-- Table -->
-      <TableView fx:id="tblRegisterDetails" layoutX="82.0" layoutY="350.0" prefHeight="190.0" prefWidth="1378.0">
+      <TableView fx:id="tblRegisterDetails" layoutX="82.0" layoutY="350.0" prefHeight="190.0" prefWidth="1124.0">
          <columns>
             <TableColumn fx:id="colEnrollmentID" prefWidth="120.0" text="Enrollment ID" />
             <TableColumn fx:id="colProgramID" prefWidth="203.20001220703125" text="Program ID" />
-            <TableColumn fx:id="colProgramName" prefWidth="356.7999572753906" text="Program Name" />
-            <TableColumn fx:id="colPayment" prefWidth="290.39996337890625" text="Payment" />
-            <TableColumn fx:id="colDuration" prefWidth="254.4000244140625" text="Duration" />
-            <TableColumn fx:id="colYears" prefWidth="214.4000244140625" text="Years" />
+            <TableColumn fx:id="colProgramName" prefWidth="246.40005493164062" text="Program Name" />
+            <TableColumn fx:id="colPayment" prefWidth="189.5999755859375" text="Payment" />
+            <TableColumn fx:id="colDuration" prefWidth="180.00006103515625" text="Duration" />
+            <TableColumn fx:id="colYears" prefWidth="176.0" text="Years" />
          </columns>
       </TableView>
 

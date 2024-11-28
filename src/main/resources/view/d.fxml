@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.DashController">
+    <!-- Top Header Section -->
+    <top>
+        <HBox spacing="20" style="-fx-background-color: #FF0000; padding: 10;">
+            <!-- Add your header content here (e.g., logo, navigation bar, etc.) -->
+            <Label text="Dashboard" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <!-- Left Side Navigation -->
+    <!-- Add left-side content if needed -->
+
+    <!-- Center Content Section -->
+    <center>
+        <AnchorPane fx:id="centerNode" style="-fx-background-color: #f5f5f5; padding: 20;">
+            <VBox spacing="20">
+                <!-- Dashboard Stats -->
+                <HBox spacing="20">
+                    <VBox>
+                        <Label text="Customer Count"/>
+                        <Label fx:id="lblCustomerCount" text="0" style="-fx-font-size: 20px;"/>
+                    </VBox>
+                    <VBox>
+                        <Label text="Employee Count"/>
+                        <Label fx:id="lblEmployeeCount" text="0" style="-fx-font-size: 20px;"/>
+                    </VBox>
+                    <VBox>
+                        <Label text="Supplier Count"/>
+                        <Label fx:id="lblSupplierCount" text="0" style="-fx-font-size: 20px;"/>
+                    </VBox>
+                    <VBox>
+                        <Label text="Order Count"/>
+                        <Label fx:id="lblOrderCount" text="0" style="-fx-font-size: 20px;"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Pie Chart -->
+                <PieChart fx:id="pieChart" prefHeight="300" prefWidth="600"/>
+
+                <!-- Bar Chart -->
+                <BarChart fx:id="barChart" prefHeight="300" prefWidth="600">
+                    <xAxis>
+                        <CategoryAxis label="Month"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Amount"/>
+                    </yAxis>
+                </BarChart>
+
+                <!-- Expenses, Income, and Profit -->
+                <HBox spacing="20">
+                    <VBox>
+                        <Label text="Expenses"/>
+                        <Label fx:id="lblExpenses" text="0" style="-fx-font-size: 20px;"/>
+                    </VBox>
+                    <VBox>
+                        <Label text="Income"/>
+                        <Label fx:id="lblIncome" text="0" style="-fx-font-size: 20px;"/>
+                    </VBox>
+                    <VBox>
+                        <Label text="Profit"/>
+                        <Label fx:id="lblProfit" text="0" style="-fx-font-size: 20px;"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </AnchorPane>
+    </center>
+
+    <!-- Bottom Section (optional for footer) -->
+    <bottom>
+        <HBox>
+            <Label text="© 2024 Your Company" style="-fx-text-fill: gray; padding: 10;"/>
+        </HBox>
+    </bottom>
+</BorderPane>

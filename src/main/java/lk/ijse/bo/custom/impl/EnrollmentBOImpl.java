@@ -170,7 +170,7 @@ public class EnrollmentBOImpl implements EnrollmentBO {
                 }
 
                 transaction.commit(); // Commit transaction if everything is successful
-                new Alert(Alert.AlertType.CONFIRMATION, "Transaction completed!").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "The student has been successfully registered!").show();
             }
 
         } catch (Exception e) {

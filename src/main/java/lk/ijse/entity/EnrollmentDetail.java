@@ -15,27 +15,27 @@ public class EnrollmentDetail implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Primary key for enrollment details
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "enrollment_id", referencedColumnName = "enrollmentId", nullable = false)
-    private Enrollment enrollment; // Reference to Enrollment entity
+    private Enrollment enrollment;
 
     @ManyToOne
     @JoinColumn(name = "program_code", referencedColumnName = "program_code", nullable = false)
-    private Program program; // Reference to Program entity
+    private Program program;
 
     @ManyToOne
     @JoinColumn(name = "student_id", referencedColumnName = "id", nullable = false)
-    private Student student; // Reference to Student entity
+    private Student student;
 
     @Column(name = "enrollment_date", nullable = false)
-    private LocalDate enrollmentDate; // Date of enrollment
+    private LocalDate enrollmentDate;
 
-    // Default constructor
+
     public EnrollmentDetail() {}
 
-    // Parameterized constructor
+
     public EnrollmentDetail(Enrollment enrollment, Program program, Student student, LocalDate enrollmentDate) {
         this.enrollment = enrollment;
         this.program = program;

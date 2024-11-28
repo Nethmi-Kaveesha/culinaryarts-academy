@@ -76,7 +76,7 @@ public class UserFormController {
 
         user_id.setText(userBO.generateUserId());
 
-        user_role.getItems().addAll("Admin", "Manager","Developer","HR Specialist", "Finance Officer", "IT Support");
+        user_role.getItems().addAll("Admin", "Admissions coordinator","User");
     }
 
     private void setCellValueFactory() {
