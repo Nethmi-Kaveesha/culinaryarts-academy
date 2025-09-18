@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="848c05aa-e752-4598-b4c9-9921316dc4ea" name="Changes" comment="create login">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/Screenshot 2025-09-18 005657.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="848c05aa-e752-4598-b4c9-9921316dc4ea" name="Changes" comment="add read me md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -160,7 +156,7 @@
       <workItem from="1732731895025" duration="634000" />
       <workItem from="1732779831987" duration="13190000" />
       <workItem from="1732807567470" duration="6522000" />
-      <workItem from="1758181965403" duration="599000" />
+      <workItem from="1758181965403" duration="717000" />
     </task>
     <task id="LOCAL-00001" summary="first-day">
       <option name="closed" value="true" />
@@ -258,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732660030120</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add read me md">
+      <option name="closed" value="true" />
+      <created>1758182582565</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1758182582565</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,6 +280,7 @@
     <MESSAGE value="design the project" />
     <MESSAGE value="done the rejister student" />
     <MESSAGE value="create login" />
-    <option name="LAST_COMMIT_MESSAGE" value="create login" />
+    <MESSAGE value="add read me md" />
+    <option name="LAST_COMMIT_MESSAGE" value="add read me md" />
   </component>
 </project>
